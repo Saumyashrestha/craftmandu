@@ -1,6 +1,5 @@
-import { Button } from "@material-tailwind/react";
 import{
-  BrowerRouter as Router,
+  BrowserRouter as Router,
   Route,
   Routes,
 } from "react-router-dom";
