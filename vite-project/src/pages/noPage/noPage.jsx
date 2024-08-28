@@ -1,4 +1,4 @@
-const noPage = () =>{
+const NoPage = () =>{
     return(
         <div>
             No Page
@@ -6,4 +6,4 @@ const noPage = () =>{
     );
 }
 
-export default noPage;
+export default NoPage;
