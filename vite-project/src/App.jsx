@@ -1,9 +1,19 @@
 import { Button } from "@material-tailwind/react";
+import{
+  BrowerRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
+import Home from "./pages/home/home";
 
 const App = () => {
   return(
     <div>
-      <button>Click</button>
+      <Router>
+        <Routes>
+          <Route path="/" element = {<Home/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
