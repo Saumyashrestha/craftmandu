@@ -1,11 +1,11 @@
-import Footer from "../footer/Footer";
-import Navbar from "../navbar/Navbar";
+import Footer from "../footer/footer";
+import Navbar from "../navbar/navbar";
 
 const Layout = ({children}) =>{
     return(
         <div>
             <Navbar/>
-            <div className="main-content">
+            <div className="main-content min-h-screen">
                 {children}
             </div>
             <Footer/>

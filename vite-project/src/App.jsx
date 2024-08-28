@@ -3,8 +3,8 @@ import{
   Route,
   Routes,
 } from "react-router-dom";
-import Home from "./pages/home/Home";
-import NoPage from "./pages/noPage/NoPage";
+import Home from "./pages/home/home";
+import NoPage from "./pages/noPage/noPage";
 
 const App = () => {
   return(
