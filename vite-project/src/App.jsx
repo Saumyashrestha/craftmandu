@@ -9,6 +9,8 @@ import ProductInfo from "./pages/productInfo/productInfo";
 import ScrollTop from "./components/scrollTop/scrollTop";
 import CartPage from "./pages/cart/CartPage";
 import AllProducts from "./pages/allProducts/allProducts";
+import LogIn from "./pages/registration/logIn";
+import SignUp from "./pages/registration/signup";
 
 const App = () => {
   return(
@@ -21,6 +23,8 @@ const App = () => {
           <Route path="/productinfo" element = {<ProductInfo/>}/>
           <Route path="/cart" element = {<CartPage/>}/>
           <Route path="/allproducts" element = {<AllProducts/>}/>
+          <Route path="/login" element = {<LogIn/>}/>
+          <Route path="/signup" element = {<SignUp/>}/>
         </Routes>
       </Router>
     </div>
