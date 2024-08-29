@@ -9,6 +9,7 @@ import ProductInfo from "./pages/productInfo/productInfo";
 import ScrollTop from "./components/scrollTop/scrollTop";
 import CartPage from "./pages/cart/CartPage";
 import AllProducts from "./pages/allProducts/allProducts";
+import UserDashboard from "./pages/user/UserDashboard";
 
 const App = () => {
   return(
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/productinfo" element = {<ProductInfo/>}/>
           <Route path="/cart" element = {<CartPage/>}/>
           <Route path="/allproducts" element = {<AllProducts/>}/>
+          <Route path="/user-dashboard" element = {<UserDashboard/>}/>
         </Routes>
       </Router>
     </div>
