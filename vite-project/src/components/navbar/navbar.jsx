@@ -24,6 +24,16 @@ const Navbar = () => {
                 <Link to={'/'} className="hover:text-[#dd3333]">Home</Link>
             </li>
 
+             {/* Signup */}
+             {!user ? <li>
+                <Link to={'/signup'}>Signup</Link>
+            </li> : ""}
+
+             {/* Login */}
+             {!user ? <li>
+                <Link to={'/login'}>Login</Link>
+            </li> : ""}
+
             {/* Contact */}
             <li>
                 <Link to={'/allproduct'} className="hover:text-[#dd3333]">Contact</Link>
@@ -39,11 +49,24 @@ const Navbar = () => {
     const navListRight = (
         <ul className="flex space-x-10 text-black font-medium text-md ">
             {/* Profile */}
-            <li>
+
+             {/* logout */}
+             {user && <li className=" cursor-pointer" onClick={logout}>
+                logout_icon
+            </li>}
+
+
+            {user?.role === "user" && <li>
                 <Link to={'/user-dashboard'} className="hover:text-[#dd3333]">
                 <i className="fas fa-user-circle text-2xl"></i>
                 </Link>
-            </li>
+            </li>}
+
+            {user?.role === "admin" && <li>
+                <Link to={'/admin-dashboard'} className="hover:text-[#dd3333]">
+                <i className="fas fa-user-circle text-2xl"></i>
+                </Link>
+            </li>} 
 
             {/* Cart */}
             <li>
@@ -52,9 +75,6 @@ const Navbar = () => {
                 </Link>
             </li>
 
-            <li>
-                <Link to={'/admin-dashboard'}>Admin</Link>
-            </li>
         </ul>
     );
 
