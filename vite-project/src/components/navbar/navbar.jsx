@@ -38,6 +38,10 @@ const Navbar = () => {
                 <i className="fas fa-shopping-cart text-2xl"></i>
                 </Link>
             </li>
+
+            <li>
+                <Link to={'/admin-dashboard'}>Admin</Link>
+            </li>
         </ul>
     );
 

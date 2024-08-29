@@ -12,6 +12,9 @@ import AllProducts from "./pages/allProducts/allProducts";
 import LogIn from "./pages/registration/logIn";
 import SignUp from "./pages/registration/signup";
 import UserDashboard from "./pages/user/UserDashboard";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AddProductPage from "./pages/admin/AddProductPage";
+import UpdateProductPage from "./components/admin/UpdateProductPage";
 
 const App = () => {
   return(
@@ -27,6 +30,9 @@ const App = () => {
           <Route path="/user-dashboard" element = {<UserDashboard/>}/>
           <Route path="/login" element = {<LogIn/>}/>
           <Route path="/signup" element = {<SignUp/>}/>
+          <Route path="/admin-dashboard" element = {<AdminDashboard/>} />
+          <Route path="/addproduct" element = {<AddProductPage/>}/>
+          <Route path="/updateproduct" element = {<UpdateProductPage/>}/>
         </Routes>
       </Router>
     </div>
