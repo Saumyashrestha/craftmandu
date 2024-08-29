@@ -114,7 +114,7 @@ const HomeProductCard = () => {
                                             </h1>
 
                                             <div className="flex justify-center ">
-                                                <button className=" bg-pink-500 hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
+                                                <button className=" bg-[#dd3333] hover:bg-pink-600 w-full text-white py-[4px] rounded-lg font-bold">
                                                     Add To Cart
                                                 </button>
                                             </div>
