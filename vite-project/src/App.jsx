@@ -12,10 +12,12 @@ import AllProducts from "./pages/allProducts/allProducts";
 import LogIn from "./pages/registration/logIn";
 import SignUp from "./pages/registration/signup";
 import UserDashboard from "./pages/user/UserDashboard";
+import MyState from "./context/myState";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return(
-    <div>
+    <MyState>
       <Router>
         <ScrollTop/>
         <Routes>
@@ -28,8 +30,9 @@ const App = () => {
           <Route path="/login" element = {<LogIn/>}/>
           <Route path="/signup" element = {<SignUp/>}/>
         </Routes>
+        <Toaster/>
       </Router>
-    </div>
+    </MyState>
   );
 }
 

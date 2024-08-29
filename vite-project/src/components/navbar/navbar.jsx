@@ -1,8 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Navbar = () => {
+
+    // get user from localStorage 
+    const user = JSON.parse(localStorage.getItem('users'));
+
+    // navigate 
+    const navigate = useNavigate();
+
+    // logout function 
+    const logout = () => {
+        localStorage.clear('users');
+        navigate("/login")
+    }
+    
     // navList Data
     const navListLeft = (
         <ul className="flex space-x-10 text-black font-medium text-md ">
