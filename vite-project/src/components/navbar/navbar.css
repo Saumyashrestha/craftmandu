@@ -1,0 +1,56 @@
+
+ul li a {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+ul li a:hover {
+    color: #dd3333; /* Darker grey color on hover */
+}
+
+#navbar-container #search-form {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#navbar-container #search-form input {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    font-size: 16px;
+    width: 600px; /* Increased width */
+    transition: width 0.4s ease-in-out;
+}
+
+#navbar-container #search-form input:focus {
+    width: 650px; /* Increased focus width */
+    border-color: #DB4444;
+}
+
+/* Search button hover effect */
+#navbar-container #search-form button:hover {
+    background-color: #b53636; /* Darker shade on hover */
+}
+
+/* Alignments and Spacing */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-bar-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.flex {
+    gap: 1rem; /* Use gap property if supported */
+}
+
+.space-x-8 > * + * {
+    margin-left: 2rem; /* Increased space between elements */
+}
