@@ -29,7 +29,7 @@ const category = [
 const Category = () => {
     return (
         <div>
-            <div className="flex flex-col mt-5">
+            <div className="flex flex-col">
                 {/* main 1 */}
                 <div className="flex overflow-x-scroll lg:justify-center  hide-scroll-bar">
                     {/* main 2  */}
@@ -37,12 +37,12 @@ const Category = () => {
                         {/* category  */}
                         {category.map((item, index) => {
                             return (
-                                <div key={index} className="">
-                                    <div className=" w-16 h-16 lg:w-24 lg:h-24 max-w-xs bg-[#dd3333] transition-all hover:bg-[#dd5555] cursor-pointer mb-1 " >
+                                <div key={index} className="flex items-center">
+                                    <div className="h-16 lg:h-20 bg-[#dd3333] transition-all hover:bg-[#dd5555] cursor-pointer mb-1 flex justify-center items-center " >
+                                         {/* Name Text  */}
+                                    <h1 className=' text-sm lg:text-lg text-center font-medium title-font first-letter:uppercase text-white mr-3 px-12'>{item.name}</h1>
                                     </div>
-
-                                    {/* Name Text  */}
-                                    <h1 className=' text-sm lg:text-lg text-center font-medium title-font first-letter:uppercase '>{item.name}</h1>
+                                   
                                 </div>
                             )
                         })}

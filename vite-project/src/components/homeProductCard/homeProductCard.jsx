@@ -82,7 +82,7 @@ const HomeProductCard = () => {
         <div className="mt-10">
             {/* Heading  */}
             <div className="">
-                <h1 className=" text-center mb-5 text-2xl font-semibold">Bestselling Products</h1>
+                <h1 className=" text-center mb-5 text-[#dd3333] text-2xl font-semibold">New Arrivals</h1>
             </div>
 
             {/* main 1 */}
@@ -104,7 +104,7 @@ const HomeProductCard = () => {
                                             />
                                         <div className="p-6">
                                             <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                                                E-bharat
+                                                RS Craftmandu
                                             </h2>
                                             <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                                                 {title.substring(0, 25)}
