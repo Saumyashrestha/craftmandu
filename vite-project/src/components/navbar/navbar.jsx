@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
-import './navbar.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Navbar = () => {
@@ -9,17 +8,17 @@ const Navbar = () => {
         <ul className="flex space-x-10 text-black font-medium text-md ">
             {/* Home */}
             <li>
-                <Link to={'/'} className="hover:text-dd3333">Home</Link>
+                <Link to={'/'} className="hover:text-[#dd3333]">Home</Link>
             </li>
 
             {/* Contact */}
             <li>
-                <Link to={'/allproduct'} className="hover:text-dd3333">Contact</Link>
+                <Link to={'/allproduct'} className="hover:text-[#dd3333]">Contact</Link>
             </li>
 
             {/* About */}
             <li>
-                <Link to={'/signup'} className="hover:text-dd3333">About</Link>
+                <Link to={'/signup'} className="hover:text-[#dd3333]">About</Link>
             </li>
         </ul>
     );
@@ -28,14 +27,14 @@ const Navbar = () => {
         <ul className="flex space-x-10 text-black font-medium text-md ">
             {/* Profile */}
             <li>
-                <Link to={'/profile'} className="hover:text-dd3333">
+                <Link to={'/profile'} className="hover:text-[#dd3333]">
                 <i className="fas fa-user-circle text-2xl"></i>
                 </Link>
             </li>
 
             {/* Cart */}
             <li>
-                <Link to={'/cart'} className="hover:text-dd3333">
+                <Link to={'/cart'} className="hover:text-[#dd3333]">
                 <i className="fas fa-shopping-cart text-2xl"></i>
                 </Link>
             </li>

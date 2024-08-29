@@ -40,7 +40,7 @@ const Category = () => {
                                 <div key={index} className="flex items-center">
                                     <div className="h-16 lg:h-20 bg-[#dd3333] transition-all hover:bg-[#dd5555] cursor-pointer mb-1 flex justify-center items-center " >
                                          {/* Name Text  */}
-                                    <h1 className=' text-sm lg:text-lg text-center font-medium title-font first-letter:uppercase text-white mr-3 px-12'>{item.name}</h1>
+                                    <h1 className=' text-sm lg:text-lg text-center font-medium title-font first-letter:uppercase text-white mr-3 px-12 '>{item.name}</h1>
                                     </div>
                                    
                                 </div>
