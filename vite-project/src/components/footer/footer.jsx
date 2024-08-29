@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="container px-5 py-5 mx-auto flex items-center sm:flex-row flex-col">
                 <Link
                         to={'/'}
-                            className="text-gray-100 ml-1"
+                            className="text-gray-100 ml-1"  
                             rel="noopener noreferrer"
                             target="_blank"
                         >
