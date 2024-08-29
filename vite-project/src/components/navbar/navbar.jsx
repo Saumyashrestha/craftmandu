@@ -27,7 +27,7 @@ const Navbar = () => {
         <ul className="flex space-x-10 text-black font-medium text-md ">
             {/* Profile */}
             <li>
-                <Link to={'/profile'} className="hover:text-[#dd3333]">
+                <Link to={'/user-dashboard'} className="hover:text-[#dd3333]">
                 <i className="fas fa-user-circle text-2xl"></i>
                 </Link>
             </li>
