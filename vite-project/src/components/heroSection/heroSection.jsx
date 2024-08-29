@@ -1,11 +1,9 @@
-import React from 'react';
-
 const HeroSection = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row justify-between items-center h-screen bg-gray-300" >
       <div className="md:w-2/3 p-8 md:p-16">
         <h1 className="text-4xl md:text-6xl font-bold text-[#dd3333] mb-4">FIND FELT ITEMS THAT MATCH YOUR STYLE</h1>
-        <p className="text-lg md:text-xl text-gray-600 mb-8">Browse through our diverse range of meticulously crafted items, designed to bring out the light in your home.</p>
+        <p className="text-lg md:text-xl text-gray-700 mb-8">Browse through our diverse range of meticulously crafted items, designed to bring out the light in your home.</p>
         <button className="bg-[#dd3333] text-white px-4 py-2 rounded-full hover:bg-[#dd5555]">Shop Now</button>
         <div className="flex space-x-4 mt-8">
           <div className="text-center">
@@ -22,7 +20,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <img className="md:w-2/3 h-full object-cover" src="src\components\heroSection\hero.png" alt="image_hero_section" />
+      <img className="md:w-2/3 h-full object-cover sd:order-1" src="src\components\heroSection\hero.png"  alt="image_hero_section" />
     </div>
   );
 };

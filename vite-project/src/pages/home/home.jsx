@@ -7,7 +7,6 @@ const Home = () =>{
     return(
         <Layout>
             <HeroSection/>
-            <div style={{ marginBottom: '15px' }}></div>
             <Category/>
             <HomeProductCard/>
         </Layout>
