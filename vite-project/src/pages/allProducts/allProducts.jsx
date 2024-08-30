@@ -81,7 +81,7 @@ const AllProduct = () => {
     const navigate = useNavigate();
     return (
         <Layout>
-    <div className="py-8">
+    <div className="playfair py-8">
             {/* Heading  */}
             <div className="">
                 <h1 className=" text-center mb-5 text-2xl font-semibold">All Products</h1>

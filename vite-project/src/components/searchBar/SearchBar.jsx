@@ -39,14 +39,14 @@ const SearchBar = () => {
    // Filter Search Data
    const filterSearchData = searchData.filter((obj) => obj.name.toLowerCase().includes(search)).slice(0, 8)
   return (
-    <div className="">
+    <div className="playfair ">
     {/* search input  */}
     <div className="input flex justify-center">
         <input
             type="text"
             placeholder='Search for products...'
             onChange={(e) => setSearch(e.target.value)}
-            className='bg-[#F2F0F1] placeholder-gray-400 rounded-full px-6 py-3 w-full lg:w-[500px] outline-none text-black focus:ring-2 focus:ring-dd3333 shadow-md transition-all ease-in-out duration-300'
+            className=' bg-[#F2F0F1] placeholder-gray-500 rounded-full px-6 py-3 w-full lg:w-[500px] outline-none text-black focus:ring-2 focus:ring-dd3333 shadow-md transition-all ease-in-out duration-300'
         />
     </div>
 

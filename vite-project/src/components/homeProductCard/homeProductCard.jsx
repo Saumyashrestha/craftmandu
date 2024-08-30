@@ -79,10 +79,10 @@ const productData = [
 const HomeProductCard = () => {
     const navigate = useNavigate();
     return (
-        <div className="mt-10">
+        <div className="playfair mt-10">
             {/* Heading  */}
             <div className="">
-                <h1 className=" text-center mb-5 text-[#dd3333] text-2xl font-semibold">New Arrivals</h1>
+                <h1 className=" text-center mb-5 text-[#dd3333] text-3xl font-semibold">New Arrivals</h1>
             </div>
 
             {/* main 1 */}
@@ -103,13 +103,13 @@ const HomeProductCard = () => {
                                                 alt="blog"
                                             />
                                         <div className="p-6">
-                                            <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                                            <h2 className=" tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                                                 RS Craftmandu
                                             </h2>
-                                            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                                            <h1 className=" title-font text-lg font-medium text-gray-900 mb-3">
                                                 {title.substring(0, 25)}
                                             </h1>
-                                            <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                                            <h1 className=" title-font text-lg font-medium text-gray-900 mb-3">
                                                 ₹{price}
                                             </h1>
 

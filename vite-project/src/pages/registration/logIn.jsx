@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import Loader from "../../components/loader/Loader";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
+import Layout from "../../components/layout/Layout";
 
 const Login = () => {
     const context = useContext(myContext);
@@ -69,7 +70,8 @@ const Login = () => {
         }
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <Layout>
+        <div className='playfair flex justify-center items-center h-screen'>
             {loading && <Loader />}
             {/* Login Form  */}
             <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
@@ -131,6 +133,7 @@ const Login = () => {
 
             </div>
         </div>
+        </Layout>
     );
 }
 

@@ -29,7 +29,7 @@ const category = [
 const Category = () => {
     return (
         <div>
-            <div className="flex flex-col">
+            <div className="playfair flex flex-col">
                 {/* main 1 */}
                 <div className="flex overflow-x-scroll lg:justify-center  hide-scroll-bar">
                     {/* main 2  */}

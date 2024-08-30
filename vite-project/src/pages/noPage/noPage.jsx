@@ -1,6 +1,6 @@
 const NoPage = () =>{
     return(
-        <div>
+        <div className="playfair ">
             No Page
         </div>
     );

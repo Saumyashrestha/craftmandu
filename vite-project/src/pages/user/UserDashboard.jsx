@@ -18,7 +18,7 @@ const UserDashboard = () => {
     const user = JSON.parse(localStorage.getItem('users'));
     return (
         <Layout>
-            <div className=" container mx-auto px-4 py-5 lg:py-8">
+            <div className="playfair  container mx-auto px-4 py-5 lg:py-8">
                 {/* Top  */}
                 <div className="top ">
                     {/* main  */}

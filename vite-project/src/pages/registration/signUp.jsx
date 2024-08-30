@@ -7,6 +7,7 @@ import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import toast from "react-hot-toast";
 import Loader from "../../components/loader/Loader";
+import Layout from "../../components/layout/Layout";
 
 const Signup = () => {
     const context = useContext(myContext);
@@ -77,14 +78,15 @@ const Signup = () => {
 
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <Layout>
+        <div className='playfair flex justify-center items-center h-screen'>
             {loading && <Loader/>}
             {/* Login Form  */}
             <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
 
                 {/* Top Heading  */}
                 <div className="mb-5">
-                    <h2 className='text-center text-2xl font-bold text-pink-500 '>
+                    <h2 className=' text-center text-2xl font-bold text-pink-500 '>
                         Signup
                     </h2>
                 </div>
@@ -101,7 +103,7 @@ const Signup = () => {
                                 name: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
                     />
                 </div>
 
@@ -117,7 +119,7 @@ const Signup = () => {
                                 email: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
                     />
                 </div>
 
@@ -133,7 +135,7 @@ const Signup = () => {
                                 password: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
                     />
                 </div>
 
@@ -142,18 +144,19 @@ const Signup = () => {
                     <button
                         type='button'
                         onClick={userSignupFunction}
-                        className='bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                        className=' bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
                     >
                         Signup
                     </button>
                 </div>
 
                 <div>
-                    <h2 className='text-black'>Have an account <Link className=' text-pink-500 font-bold' to={'/login'}>Login</Link></h2>
+                    <h2 className=' text-black'>Already have an account? <Link className=' text-pink-500 font-bold' to={'/login'}>Login</Link></h2>
                 </div>
 
             </div>
         </div>
+        </Layout>
     );
 }
 

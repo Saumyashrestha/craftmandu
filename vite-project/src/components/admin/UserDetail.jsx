@@ -1,6 +1,6 @@
 const UserDetail = () => {
     return (
-        <div>
+        <div className="playfair ">
                <div>
             <div className="py-5 flex justify-between items-center">
                 {/* text  */}

@@ -21,23 +21,23 @@ const Navbar = () => {
         <ul className="flex space-x-10 text-black font-medium text-md ">
             {/* Home */}
             <li>
-                <Link to={'/'} className="hover:text-[#dd3333]">Home</Link>
+                <Link to={'/'} className=" hover:text-[#dd3333]">Home</Link>
             </li>
 
              {/* Signup */}
              {!user ? <li>
-                <Link to={'/signup'}>Signup</Link>
+                <Link to={'/signup'} className=" hover:text-[#dd3333]">Signup</Link>
             </li> : ""}
 
              {/* Login */}
              {!user ? <li>
-                <Link to={'/login'}>Login</Link>
+                <Link to={'/login'} className=" hover:text-[#dd3333]">Login</Link>
             </li> : ""}
 
 
             {/* About */}
             <li>
-                <Link to={'/aboutus'} className="hover:text-[#dd3333]">About</Link>
+                <Link to={'/aboutus'} className=" hover:text-[#dd3333]">About</Link>
             </li>
         </ul>
     );
@@ -77,11 +77,11 @@ const Navbar = () => {
     return (
         <nav className="bg-white sticky top-0 shadow-md">
             {/* main  */}
-            <div className="lg:flex lg:justify-between items-center py-3 lg:px-10 ">
+            <div className="playfair lg:flex lg:justify-between items-center py-3 lg:px-10 ">
                 {/* left side (Logo and Left Links) */}
                 <div className="flex items-center space-x-12">
                     <Link to={'/'}>
-                        <h2 className="font-bold text-[#dd3333] text-2xl">RS Craftmandu</h2>
+                        <h2 className=" font-bold text-[#dd3333] text-2xl">RS Craftmandu</h2>
                     </Link>
                     <div> {/* Added margin-left to create space between logo and nav links */}
                         {navListLeft}

@@ -4,7 +4,7 @@ const AboutUS = () =>{
     return(
         <Layout>
             <section className="py-5 lg:py-16 font-poppins dark:bg-gray-800">
-                <div className="max-w-6xl px-4 mx-auto">
+                <div className="playfair max-w-6xl px-4 mx-auto">
                     <div className="flex flex-wrap mb-24 -mx-4">
                         <div className="w-full px-4 mb-8 md:w-1/2 md:mb-0">
                             <div className="">

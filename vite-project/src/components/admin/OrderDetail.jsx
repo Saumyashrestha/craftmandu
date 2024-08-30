@@ -1,6 +1,6 @@
 const OrderDetail = () => {
     return (
-        <div>
+        <div className="playfair ">
                <div>
             <div className="py-5">
                 {/* text  */}

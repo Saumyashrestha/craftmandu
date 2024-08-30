@@ -14,12 +14,12 @@ const Footer = () => {
                             target="_blank"
                         >
                             {/* logo  */}
-                            <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
+                            <a className="playfair flex title-font font-medium items-center md:justify-start justify-center text-white">
                                 <span className="text-xl font-bold">RS Craftmandu</span>
                             </a>
                         </Link>
                     {/* para  */}
-                    <p className="text-sm text-gray-100 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+                    <p className="playfair text-sm text-gray-100 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
                         © 2024 rscraftmandu
                     </p>
                     
