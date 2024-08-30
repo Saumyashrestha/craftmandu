@@ -22,6 +22,7 @@ import UpdateProductPage from "./pages/admin/UpdateProductPage";
 import { ProtectedRouteForUser } from "./protectedRoutes/ProtectedRouteForUser";
 import { ProtectedRouteForAdmin } from "./protectedRoutes/ProtectedRouteForAdmin";
 import AboutUS from "./pages/about/Aboutus";
+import CategoryPage from './pages/category/CategoryPage';
 
 const App = () => {
   return(
@@ -58,6 +59,7 @@ const App = () => {
           }/>
 
           <Route path="/aboutus" element = {<AboutUS/>}/>
+          <Route path="/category/:categoryname" element={<CategoryPage/>} />
         </Routes>
         <Toaster/>
       </Router>
