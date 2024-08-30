@@ -46,13 +46,13 @@ const SearchBar = () => {
             type="text"
             placeholder='Search for products...'
             onChange={(e) => setSearch(e.target.value)}
-            className='bg-gray-200 placeholder-gray-400 rounded-full px-6 py-3 w-full lg:w-[700px] outline-none text-black focus:ring-2 focus:ring-dd3333 shadow-md transition-all ease-in-out duration-300'
+            className='bg-[#F2F0F1] placeholder-gray-400 rounded-full px-6 py-3 w-full lg:w-[500px] outline-none text-black focus:ring-2 focus:ring-dd3333 shadow-md transition-all ease-in-out duration-300'
         />
     </div>
 
     {/* search drop-down  */}
     <div className=" flex justify-center">
-        {search && <div className="absolute bg-gray-200 w-full lg:w-[700px] rounded-lg mt-2 z-50 shadow-lg">
+        {search && <div className="absolute bg-gray-200 w-full lg:w-[500px] rounded-lg mt-2 z-50 shadow-lg">
             {filterSearchData.length > 0 ?
                 <>
                     {filterSearchData.map((item, index) => {

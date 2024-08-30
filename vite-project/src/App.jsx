@@ -19,6 +19,7 @@ import AddProductPage from "./pages/admin/AddProductPage";
 import UpdateProductPage from "./components/admin/UpdateProductPage";
 import { ProtectedRouteForUser } from "./protectedRoutes/ProtectedRouteForUser";
 import { ProtectedRouteForAdmin } from "./protectedRoutes/ProtectedRouteForAdmin";
+import AboutUS from "./pages/about/Aboutus";
 
 const App = () => {
   return(
@@ -53,6 +54,8 @@ const App = () => {
             <UpdateProductPage/>
           </ProtectedRouteForAdmin>
           }/>
+
+          <Route path="/aboutus" element = {<AboutUS/>}/>
         </Routes>
         <Toaster/>
       </Router>

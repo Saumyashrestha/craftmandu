@@ -34,14 +34,10 @@ const Navbar = () => {
                 <Link to={'/login'}>Login</Link>
             </li> : ""}
 
-            {/* Contact */}
-            <li>
-                <Link to={'/allproduct'} className="hover:text-[#dd3333]">Contact</Link>
-            </li>
 
             {/* About */}
             <li>
-                <Link to={'/signup'} className="hover:text-[#dd3333]">About</Link>
+                <Link to={'/aboutus'} className="hover:text-[#dd3333]">About</Link>
             </li>
         </ul>
     );
@@ -52,7 +48,7 @@ const Navbar = () => {
 
              {/* logout */}
              {user && <li className=" cursor-pointer" onClick={logout}>
-                logout_icon
+             <i className="fas fa-sign-out-alt text-2xl hover:text-[#dd3333]"></i>
             </li>}
 
 
@@ -79,13 +75,13 @@ const Navbar = () => {
     );
 
     return (
-        <nav className="bg-gray-300 sticky top-0 shadow-md">
+        <nav className="bg-white sticky top-0 shadow-md">
             {/* main  */}
             <div className="lg:flex lg:justify-between items-center py-3 lg:px-10 ">
                 {/* left side (Logo and Left Links) */}
                 <div className="flex items-center space-x-12">
                     <Link to={'/'}>
-                        <h2 className="font-bold text-dd3333 text-2xl">RS Craftmandu</h2>
+                        <h2 className="font-bold text-[#dd3333] text-2xl">RS Craftmandu</h2>
                     </Link>
                     <div> {/* Added margin-left to create space between logo and nav links */}
                         {navListLeft}
