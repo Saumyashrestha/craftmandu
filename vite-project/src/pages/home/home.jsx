@@ -11,7 +11,6 @@ const Home = () =>{
             <HeroSection/>
             <Category/>
             <HomeProductCard/>
-            <Loader/>
         </Layout>
     );
 }
