@@ -18,7 +18,7 @@ import MyState from "./context/myState";
 import { Toaster } from "react-hot-toast";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AddProductPage from "./pages/admin/AddProductPage";
-import UpdateProductPage from "./components/admin/UpdateProductPage";
+import UpdateProductPage from "./pages/admin/UpdateProductPage";
 import { ProtectedRouteForUser } from "./protectedRoutes/ProtectedRouteForUser";
 import { ProtectedRouteForAdmin } from "./protectedRoutes/ProtectedRouteForAdmin";
 import AboutUS from "./pages/about/Aboutus";
@@ -51,7 +51,7 @@ const App = () => {
             <AddProductPage/>
           </ProtectedRouteForAdmin>
           }/>
-          <Route path="/updateproduct" element = {
+          <Route path="/updateproduct/:id" element = {
             <ProtectedRouteForAdmin>
             <UpdateProductPage/>
           </ProtectedRouteForAdmin>
