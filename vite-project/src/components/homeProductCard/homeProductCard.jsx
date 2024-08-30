@@ -9,6 +9,8 @@ const HomeProductCard = () => {
     
     const context = useContext(myContext);
     const {loading, getAllProduct} = context;
+    
+
     return (
         <div className="playfair mt-10">
             {/* Heading  */}
