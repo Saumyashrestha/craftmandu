@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
 
@@ -15,6 +16,9 @@ const Navbar = () => {
         localStorage.clear('users');
         navigate("/login")
     }
+
+    //cartItems
+    const cartItems = useSelector((state) => state.cart);
     
     // navList Data
     const navListLeft = (
@@ -67,7 +71,7 @@ const Navbar = () => {
             {/* Cart */}
             <li>
                 <Link to={'/cart'} className="hover:text-[#dd3333]">
-                <i className="fas fa-shopping-cart text-2xl"></i>
+                <i className="fas fa-shopping-cart text-2xl">({cartItems.length})</i>
                 </Link>
             </li>
 
