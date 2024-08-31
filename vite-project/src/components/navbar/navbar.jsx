@@ -71,7 +71,7 @@ const Navbar = () => {
             {/* Cart */}
             <li>
                 <Link to={'/cart'} className="hover:text-[#dd3333]">
-                <i className="fas fa-shopping-cart text-2xl">({cartItems.length})</i>
+                <i className="fas fa-shopping-cart text-2xl"><span className="text-xs">({cartItems.length})</span></i>
                 </Link>
             </li>
 
@@ -79,7 +79,7 @@ const Navbar = () => {
     );
 
     return (
-        <nav className="bg-white sticky top-0 shadow-md">
+        <nav className=" bg-white sticky top-0 shadow-md">
             {/* main  */}
             <div className="playfair lg:flex lg:justify-between items-center py-3 lg:px-10 ">
                 {/* left side (Logo and Left Links) */}

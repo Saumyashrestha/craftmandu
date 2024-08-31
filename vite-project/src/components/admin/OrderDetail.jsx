@@ -6,7 +6,7 @@ const OrderDetail = () => {
     const { getAllOrder, orderDelete } = context;
     // console.log(getAllOrder)
     return (
-        <div>
+        <div className="playfair">
             <div>
                 <div className="py-5">
                     {/* text  */}
