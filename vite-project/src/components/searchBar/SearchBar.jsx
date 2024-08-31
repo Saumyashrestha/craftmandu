@@ -39,20 +39,20 @@ const SearchBar = () => {
    // Filter Search Data
    const filterSearchData = searchData.filter((obj) => obj.name.toLowerCase().includes(search)).slice(0, 8)
   return (
-    <div className="playfair ">
+    <div className="playfair">
     {/* search input  */}
     <div className="input flex justify-center">
         <input
             type="text"
             placeholder='Search for products...'
             onChange={(e) => setSearch(e.target.value)}
-            className=' bg-[#F2F0F1] placeholder-gray-500 rounded-full px-6 py-3 w-full lg:w-[500px] outline-none text-black focus:ring-2 focus:ring-dd3333 shadow-md transition-all ease-in-out duration-300'
+            className=' bg-[#F2F0F1] placeholder-gray-500 rounded-full px-6 py-2 lg:py-3 w-[300px] lg:w-[500px] lg:mr-5 outline-none text-black focus:ring-2 focus:ring-dd3333 shadow-md transition-all ease-in-out duration-300'
         />
     </div>
 
     {/* search drop-down  */}
     <div className=" flex justify-center">
-        {search && <div className="absolute bg-gray-200 w-full lg:w-[500px] rounded-lg mt-2 z-50 shadow-lg">
+        {search && <div className="absolute bg-gray-200 w-full w-[300px] lg:w-[500px] rounded-lg mt-2 z-50 shadow-lg">
             {filterSearchData.length > 0 ?
                 <>
                     {filterSearchData.map((item, index) => {

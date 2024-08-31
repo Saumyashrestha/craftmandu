@@ -48,7 +48,7 @@ const Navbar = () => {
 
              {/* logout */}
              {user && <li className=" cursor-pointer" onClick={logout}>
-             <i className="fas fa-sign-out-alt text-2xl hover:text-[#dd3333]"></i>
+             <i className=" fas fa-sign-out-alt text-2xl hover:text-[#dd3333]"></i>
             </li>}
 
 
@@ -81,22 +81,24 @@ const Navbar = () => {
                 {/* left side (Logo and Left Links) */}
                 <div className="flex items-center space-x-12">
                     <Link to={'/'}>
-                        <h2 className=" font-bold text-[#dd3333] text-2xl">RS Craftmandu</h2>
+                        <h2 className="sm: mb-5 md: mb-5 lg:mb-0  font-bold text-[#dd3333] text-2xl">RS Craftmandu</h2>
                     </Link>
-                    <div> {/* Added margin-left to create space between logo and nav links */}
+                    <div className="sm: mb-5 md:mb-5 lg:mb-0"> {/* Added margin-left to create space between logo and nav links */}
                         {navListLeft}
                     </div>
                 </div>
-
-                {/* Search Bar */}
-                <div className="flex-grow flex-justify-center lg:justify-start lg:mx-10">
-                    <SearchBar />
-                </div>
-
-                {/* right side (Profile and Cart) */}
-                <div className="flex items-center space-x-10">
-                    {navListRight}
-                </div>
+                    
+                    {/* Search Bar */}
+                    <div className="flex justify-start ml-2 lg:mx-10 ">
+                        <SearchBar />
+                        <div className="flex items-center ml-2  space-x-10 flex-row">
+                            {navListRight}
+                            <div className="flex-none">
+                                {/* Cart icon */}
+                            </div>
+                        </div>
+                    </div>
+              
             </div>
         </nav>
     );
