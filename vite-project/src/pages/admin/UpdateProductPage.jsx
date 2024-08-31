@@ -10,28 +10,22 @@ import Layout from "../../components/layout/Layout";
 
 const categoryList = [
     {
-        name: 'fashion'
+        name: 'Christmas'
     },
     {
-        name: 'shirt'
+        name: 'Halloween'
     },
     {
-        name: 'jacket'
+        name: 'Birds & Animals'
     },
     {
-        name: 'mobile'
+        name: 'Plants & Flowers'
     },
     {
-        name: 'laptop'
+        name: 'Fairy & Gnome'
     },
     {
-        name: 'shoes'
-    },
-    {
-        name: 'home'
-    },
-    {
-        name: 'books'
+        name: 'Decorative'
     }
 ]
 

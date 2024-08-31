@@ -2,27 +2,21 @@
 import { useNavigate } from "react-router-dom";
 const category = [
     {
-        image: 'https://cdn-icons-png.flaticon.com/256/4359/4359963.png',
         name: 'Christmas'
     },
     {
-        image: 'https://cdn-icons-png.flaticon.com/256/11833/11833323.png',
         name: 'Halloween'
     },
     {
-        image: 'https://cdn-icons-png.flaticon.com/256/8174/8174424.png',
         name: 'Birds & Animals'
     },
     {
-        image: 'https://cdn-icons-png.flaticon.com/256/7648/7648246.png',
         name: 'Plants & Flowers'
     },
     {
-        image: 'https://cdn-icons-png.flaticon.com/256/12142/12142416.png',
         name: 'Fairy & Gnome'
     },
     {
-        image: 'https://cdn-icons-png.flaticon.com/256/10686/10686553.png',
         name: 'Decorative'
     },
 ]
