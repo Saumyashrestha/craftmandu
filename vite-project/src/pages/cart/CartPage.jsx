@@ -69,7 +69,7 @@ const CartPage = () => {
             addressInfo,
             email: user.email,
             userid: user.uid,
-            status: "confirmed",
+            status: "Confirmed",
             time: Timestamp.now(),
             date: new Date().toLocaleString(
                 "en-US",
