@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/myContext";
 import Loader from "../../components/loader/Loader";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const UserDashboard = () => {
     // user
@@ -18,15 +19,15 @@ const UserDashboard = () => {
                 {/* Top  */}
                 <div className="top ">
                     {/* main  */}
-                    <div className=" bg-pink-50 py-5 rounded-xl border border-pink-100">
+                    <div className=" bg-[#f4c8c8] py-5 rounded-xl border border-[#e88686]">
                         {/* image  */}
                         <div className="flex justify-center">
-                            <img src="https://cdn-icons-png.flaticon.com/128/2202/2202112.png" alt="" />
+                            <i class= "fas fa-user fa-4x" ></i>
                         </div>
                         {/* text  */}
                         <div className="">
                             {/* Name  */}
-                            <h1 className=" text-center text-lg">
+                            <h1 className=" text-center text-lg mt-4">
                                 <span className=" font-bold">Name : </span>
                                 {user?.name}
                             </h1>
@@ -43,11 +44,6 @@ const UserDashboard = () => {
                                 {user?.date}
                             </h1>
 
-                            {/* Role  */}
-                            <h1 className=" text-center text-lg">
-                                <span className=" font-bold">Role : </span>
-                                {user?.role}
-                            </h1>
                         </div>
                     </div>
                 </div>
@@ -74,9 +70,9 @@ const UserDashboard = () => {
                                         // console.log('order', order)
                                         const { status } = order
                                         return (
-                                            <div key={index} className="mt-5 flex flex-col overflow-hidden rounded-xl border border-pink-100 md:flex-row">
+                                            <div key={index} className="mt-5 flex flex-col overflow-hidden rounded-xl border border-[#e88686] md:flex-row">
                                                 {/* main 3  */}
-                                                <div className="w-full border-r border-pink-100 bg-pink-50 md:max-w-xs">
+                                                <div className="w-full border-r border-[#e88686] bg-[#f4c8c8] md:max-w-xs">
                                                     {/* left  */}
                                                     <div className="p-8">
                                                         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-1">
@@ -92,7 +88,7 @@ const UserDashboard = () => {
 
                                                             <div className="mb-4">
                                                                 <div className="text-sm font-semibold">Total Amount</div>
-                                                                <div className="text-sm font-medium text-gray-900">₹ {price * quantity}</div>
+                                                                <div className="text-sm font-medium text-gray-900">Rs. {price * quantity}</div>
                                                             </div>
 
                                                             <div className="mb-4">
@@ -130,7 +126,7 @@ const UserDashboard = () => {
                                                                 </div>
 
                                                                 <div className="ml-auto flex flex-col items-end justify-between">
-                                                                    <p className="text-right text-sm font-bold text-gray-900">₹ {price}</p>
+                                                                    <p className="text-right text-sm font-bold text-gray-900">Rs. {price}</p>
                                                                 </div>
                                                             </li>
                                                         </ul>

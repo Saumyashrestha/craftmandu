@@ -7,7 +7,7 @@ const HeroSection = () => {
         <button className=" bg-[#dd3333] text-white px-4 py-2 rounded-full hover:bg-[#f44444]">Shop Now</button>
         
         {/* Stats Section */}
-        <div className="flex space-x-10 mt-8 items-start">
+        <div className="flex space-x-8 mt-8 items-start">
           {/* First Stat */}
           <div className="text-center">
             <h3 className=" text-2xl font-semibold text-black">100+</h3>
