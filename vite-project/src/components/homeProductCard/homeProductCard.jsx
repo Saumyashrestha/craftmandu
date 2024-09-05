@@ -46,7 +46,8 @@ const HomeProductCard = () => {
             {getAllProduct.slice(0, 8).map((item, index) => {
               const { id, title, price, productImageUrl } = item;
               return (
-                <div key={index} onClick={() => navigate(`/productinfo/${id}`)} className="p-4 w-full md:w-1/4">
+                <div key={index}
+                onClick={() => navigate(`/productinfo/${id}`)} className="p-4 w-full md:w-1/4">
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer transform transition duration-300 ease-in-out hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] hover:scale-105">
                     <img
                       
@@ -68,10 +69,13 @@ const HomeProductCard = () => {
                       <div className="flex justify-center">
                         {cartItems.some((p) => p.id === item.id) ? (
                           <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            onClick={() => deleteCart(item)}
-                            className="bg-[#dd3333] hover:bg-[#f44444] w-full text-white py-[4px] rounded-lg font-bold transition duration-300 ease-in-out relative flex justify-center items-center"
-                          >
+                          whileHover={{ scale: 1.1 }}
+                          onClick={(event) => {
+                            deleteCart(item);
+                            event.stopPropagation();
+                          }}
+                          className="bg-[#dd3333] hover:bg-[#f44444] w-full text-white py-[4px] rounded-lg font-bold transition duration-300 ease-in-out relative flex justify-center items-center"
+                        >
                             <FontAwesomeIcon
                               icon={faTrash}
                               className="text-white mr-2"
@@ -80,10 +84,13 @@ const HomeProductCard = () => {
                           </motion.button>
                         ) : (
                           <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            onClick={() => addCart(item)}
-                            className="bg-[#dd3333] hover:bg-[#f44444] w-full text-white py-[4px] rounded-lg font-bold transition duration-300 ease-in-out relative flex justify-center items-center"
-                          >
+                          whileHover={{ scale: 1.1 }}
+                          onClick={(event) => {
+                            addCart(item);
+                            event.stopPropagation();
+                          }}
+                          className="bg-[#dd3333] hover:bg-[#f44444] w-full text-white py-[4px] rounded-lg font-bold transition duration-300 ease-in-out relative flex justify-center items-center"
+                        >
                             <FontAwesomeIcon
                               icon={faShoppingCart}
                               className="text-white mr-2"
