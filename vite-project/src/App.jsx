@@ -23,6 +23,10 @@ import { ProtectedRouteForUser } from "./protectedRoutes/ProtectedRouteForUser";
 import { ProtectedRouteForAdmin } from "./protectedRoutes/ProtectedRouteForAdmin";
 import AboutUS from "./pages/about/Aboutus";
 import CategoryPage from './pages/category/CategoryPage';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faShoppingCart, faTrash } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faShoppingCart, faTrash);
 
 const App = () => {
   return(
