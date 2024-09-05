@@ -160,14 +160,14 @@ const ProductInfo = () => {
                                                     ?
                                                     <button
                                                         onClick={() => deleteCart(product)}
-                                                        className="w-full px-4 py-3 text-center text-white bg-red-500 border border--600  hover:bg-red-600 hover:text-gray-100  rounded-xl"
+                                                        className="w-full px-4 py-3 text-center text-white bg-[#db4444] border border-[#d83434]  hover:bg-[#f44444] hover:text-gray-200  rounded-xl"
                                                     >
                                                         Delete From Cart
                                                     </button>
                                                     :
                                                     <button
                                                         onClick={() => addCart(product)}
-                                                        className="w-full px-4 py-3 text-center text-pink-600 bg-pink-100 border border-pink-600  hover:bg-pink-600 hover:text-gray-100  rounded-xl"
+                                                        className="w-full px-4 py-3 text-center text-white bg-[#db4444] border border-[#d83434]  hover:bg-[#f44444] hover:text-gray-200  rounded-xl"
                                                     >
                                                         Add To Cart
                                                     </button>
