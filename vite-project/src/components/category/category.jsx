@@ -25,7 +25,7 @@ const Category = () => {
                                 onClick={() => navigate(`/category/${item.name}`)}
                                 className="flex justify-center items-center cursor-pointer"
                             >
-                                <h1 className="text-lg lg:text-2xl font-medium text-white text-center transition-all hover:text-gray-300">
+                                <h1 className="text-lg lg:text-2xl font-medium text-white text-center transition-all hover:text-gray-400">
                                     {item.name}
                                 </h1>
                             </div>
