@@ -46,10 +46,10 @@ const HomeProductCard = () => {
             {getAllProduct.slice(0, 8).map((item, index) => {
               const { id, title, price, productImageUrl } = item;
               return (
-                <div key={index} className="p-4 w-full md:w-1/4">
+                <div key={index} onClick={() => navigate(`/productinfo/${id}`)} className="p-4 w-full md:w-1/4">
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer transform transition duration-300 ease-in-out hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] hover:scale-105">
                     <img
-                      onClick={() => navigate(`/productinfo/${id}`)}
+                      
                       className="lg:h-80 h-96 w-full object-cover transition-all duration-300 ease-in-out hover:opacity-70"
                       src={productImageUrl}
                       alt="image"
