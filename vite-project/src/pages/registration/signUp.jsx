@@ -81,18 +81,29 @@ const Signup = () => {
         <Layout>
         <div className='playfair flex justify-center items-center h-screen'>
             {loading && <Loader/>}
+
+            {/* Image Section */}
+            <div className="hidden lg:flex w-2/3 h-full relative bg-cover bg-center" style={{ backgroundImage: "url('src/components/heroSection/hero.png')" }}>
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center">
+                    <h1 className="text-white text-4xl font-bold">RS Craftmandu</h1>
+                </div>
+            </div>
+
             {/* Login Form  */}
-            <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
+            <div className="login_Form px-8 py-6 lg:w-2/3 flex flex-col justify-center items-center h-full  shadow-md">
 
                 {/* Top Heading  */}
-                <div className="mb-5">
-                    <h2 className=' text-center text-2xl font-bold text-pink-500 '>
+                <div className="mb-2 text-center">
+                    <h2 className='text-2xl font-bold text-[#dd3333] '>
                         Signup
                     </h2>
+                    <p className="text-gray-700 mt-2">
+                        Welcome to RS Craftmandu! Please enter your details.
+                    </p>
                 </div>
 
                 {/* Input One  */}
-                <div className="mb-3">
+                <div className="mb-4 w-96 flex mt-4 justify-center">
                     <input
                         type="text"
                         placeholder='Full Name'
@@ -103,12 +114,12 @@ const Signup = () => {
                                 name: e.target.value
                             })
                         }}
-                        className=' bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' shadow-md border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
                     />
                 </div>
 
                 {/* Input Two  */}
-                <div className="mb-3">
+                <div className="mb-5 w-full flex justify-center">
                     <input
                         type="email"
                         placeholder='Email Address'
@@ -119,7 +130,7 @@ const Signup = () => {
                                 email: e.target.value
                             })
                         }}
-                        className=' bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' shadow-md border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
                     />
                 </div>
 
@@ -135,23 +146,23 @@ const Signup = () => {
                                 password: e.target.value
                             })
                         }}
-                        className=' bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' shadow-md  border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
                     />
                 </div>
 
                 {/* Signup Button  */}
-                <div className="mb-5">
+                <div className="mb-5 w-full flex justify-center mt-4">
                     <button
                         type='button'
                         onClick={userSignupFunction}
-                        className=' bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                        className=' bg-[#dd3333] hover:bg-[#f44444] shadow-md w-96 text-white text-center py-2 font-semibold rounded-md '
                     >
-                        Signup
+                        SIGNUP
                     </button>
                 </div>
 
                 <div>
-                    <h2 className=' text-black'>Already have an account? <Link className=' text-pink-500 font-bold' to={'/login'}>Login</Link></h2>
+                    <h2 className=' text-black'>Already have an account? <Link className=' text-[#dd3333] hover:text-[#f44444] underline underline-offset-2 ' to={'/login'}>Login</Link></h2>
                 </div>
 
             </div>

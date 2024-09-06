@@ -22,20 +22,14 @@ const Login = () => {
         password: ""
     });
 
-    /**========================================================================
-     *                          User Login Function 
-    *========================================================================**/
-
     const userLoginFunction = async () => {
-        // validation 
         if (userLogin.email === "" || userLogin.password === "") {
-            toast.error("All Fields are required")
+            toast.error("All Fields are required");
         }
 
         setLoading(true);
         try {
             const users = await signInWithEmailAndPassword(auth, userLogin.email, userLogin.password);
-            // console.log(users.user)
 
             try {
                 const q = query(
@@ -45,16 +39,16 @@ const Login = () => {
                 const data = onSnapshot(q, (QuerySnapshot) => {
                     let user;
                     QuerySnapshot.forEach((doc) => user = doc.data());
-                    localStorage.setItem("users", JSON.stringify(user) )
+                    localStorage.setItem("users", JSON.stringify(user));
                     setUserLogin({
                         email: "",
                         password: ""
-                    })
+                    });
                     toast.success("Login Successfully");
                     setLoading(false);
-                    if(user.role === "user") {
+                    if (user.role === "user") {
                         navigate('/user-dashboard');
-                    }else{
+                    } else {
                         navigate('/admin-dashboard');
                     }
                 });
@@ -69,22 +63,34 @@ const Login = () => {
             toast.error("Login Failed");
         }
     }
+
     return (
         <Layout>
         <div className='playfair flex justify-center items-center h-screen'>
             {loading && <Loader />}
-            {/* Login Form  */}
-            <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
-
-                {/* Top Heading  */}
-                <div className="mb-5">
-                    <h2 className='text-center text-2xl font-bold text-pink-500 '>
+            
+            {/* Image Section */}
+            <div className="hidden lg:flex w-2/3 h-full relative bg-cover bg-center" style={{ backgroundImage: "url('src/components/heroSection/hero.png')" }}>
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center">
+                    <h1 className="text-white text-4xl font-bold">RS Craftmandu</h1>
+                </div>
+            </div>
+            
+            {/* Login Form Section */}
+            <div className="px-8 py-6 shadow-md lg:w-2/3 flex flex-col justify-center items-center h-full">
+    
+                {/* Top Heading */}
+                <div className="mb-2 text-center">
+                    <h2 className='text-2xl font-bold text-[#dd3333]'>
                         Login
                     </h2>
+                    <p className="text-gray-700 mt-2">
+                        Welcome back! Please enter your details.
+                    </p>
                 </div>
-
-                {/* Input One  */}
-                <div className="mb-3">
+    
+                {/* Input One */}
+                <div className="mb-4 w-full flex justify-center">
                     <input
                         type="email"
                         name="email"
@@ -96,12 +102,12 @@ const Login = () => {
                                 email: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' shadow-md border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
                     />
                 </div>
-
-                {/* Input Two  */}
-                <div className="mb-5">
+    
+                {/* Input Two */}
+                <div className="mb-5 w-full flex justify-center">
                     <input
                         type="password"
                         placeholder='Password'
@@ -112,29 +118,56 @@ const Login = () => {
                                 password: e.target.value
                             })
                         }}
-                        className='bg-pink-50 border border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-200'
+                        className=' shadow-md border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
                     />
+                      <div className=" playfair absolute right-45 mt-14">
+                    <Link to="/forgot-password" className="text-[#dd3333] font-semibold text-sm underline underline-offset-2 hover:text-[#f44444]">
+                        Forgot Password?
+                    </Link>
                 </div>
-
-                {/* Signup Button  */}
-                <div className="mb-5">
+                </div>
+    
+                {/* Signup Button */}
+                <div className="mb-5 w-full flex justify-center mt-8">
                     <button
                         type='button'
                         onClick={userLoginFunction}
-                        className='bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                        className='shadow-md bg-[#dd3333] hover:bg-[#f44444] w-96 text-white text-center py-2 font-semibold rounded-md'
                     >
-                        Login
+                        LOGIN
                     </button>
                 </div>
 
+                {/* Divider with lines */}
+            <div className="flex items-center justify-center my-3 w-96">
+                <div className="border-t border-gray-400 flex-grow mr-2"></div>
+                <div className="text-center text-sm text-gray-600">or</div>
+                <div className="border-t border-gray-400 flex-grow ml-2"></div>
+            </div>
+{/* Google Login Button */}
+<div className="mb-5 mt-4 w-96">
+    <button
+        type="button"
+        className="border border-gray-300 w-full py-2 rounded-md flex items-center justify-center gap-2 hover:bg-gray-100"
+    >
+        <img src="https://cdn-icons-png.flaticon.com/128/281/281764.png" alt="Google Icon" className="w-5 h-5" />
+        Continue with Google
+    </button>
+</div>
+    
+                {/* Signup Link */}
                 <div>
-                    <h2 className='text-black'>Don't Have an account <Link className=' text-pink-500 font-bold' to={'/signup'}>Signup</Link></h2>
+                    <h2 className='text-black'>Don't have an account? 
+                        <Link className='text-[#dd3333] hover:text-[#f44444]  underline underline-offest-2 ml-1' to={'/signup'}>Signup</Link>
+                    </h2>
                 </div>
-
+    
             </div>
         </div>
-        </Layout>
+    </Layout>
+    
     );
 }
+
 
 export default Login;
