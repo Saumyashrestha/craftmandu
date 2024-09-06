@@ -19,7 +19,7 @@ const UserDashboard = () => {
                 {/* Top  */}
                 <div className="top ">
                     {/* main  */}
-                    <div className=" bg-[#f4c8c8] py-5 rounded-xl border border-[#e88686]">
+                    <div className="  py-5 rounded-xl border border-[#dd3333]">
                         {/* image  */}
                         <div className="flex justify-center">
                             <i class= "fas fa-user fa-4x" ></i>
@@ -28,19 +28,19 @@ const UserDashboard = () => {
                         <div className="">
                             {/* Name  */}
                             <h1 className=" text-center text-lg mt-4">
-                                <span className=" font-bold">Name : </span>
+                                <span className=" text-[#dd3333] font-semibold">Name : </span>
                                 {user?.name}
                             </h1>
 
                             {/* Email  */}
                             <h1 className=" text-center text-lg">
-                                <span className=" font-bold">Email : </span>
+                                <span className=" text-[#dd3333] font-semibold">Email : </span>
                                 {user?.email}
                             </h1>
 
                             {/* Date  */}
                             <h1 className=" text-center text-lg">
-                                <span className=" font-bold">Date : </span>
+                                <span className=" text-[#dd3333] font-semibold">Date : </span>
                                 {user?.date}
                             </h1>
 
@@ -53,7 +53,7 @@ const UserDashboard = () => {
                     {/* main 1 */}
                     <div className="mx-auto my-4 max-w-6xl px-2 md:my-6 md:px-0">
                         {/* text  */}
-                        <h2 className=" playfair text-2xl lg:text-3xl font-bold">Order Details</h2>
+                        <h2 className=" playfair text-2xl lg:text-3xl text-[#dd3333] font-bold">Order Details</h2>
 
                         <div className="flex justify-center relative top-10">
                         {loading && <Loader/>}
@@ -72,27 +72,27 @@ const UserDashboard = () => {
                                         return (
                                             <div key={index} className="mt-5 flex flex-col overflow-hidden rounded-xl border border-[#e88686] md:flex-row">
                                                 {/* main 3  */}
-                                                <div className="w-full border-r border-[#e88686] bg-[#f4c8c8] md:max-w-xs">
+                                                <div className="w-full border-r border-[#dd3333] md:max-w-xs">
                                                     {/* left  */}
                                                     <div className="p-8">
                                                         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-1">
                                                             <div className="mb-4">
-                                                                <div className="text-sm font-semibold text-black">Order Id</div>
+                                                                <div className="text-sm font-semibold text-[#dd3333]">Order Id</div>
                                                                 <div className="text-sm font-medium text-gray-900">#{id}</div>
                                                             </div>
 
                                                             <div className="mb-4">
-                                                                <div className="text-sm font-semibold">Date</div>
+                                                                <div className="text-sm font-semibold text-[#dd3333]">Date</div>
                                                                 <div className="text-sm font-medium text-gray-900">{date}</div>
                                                             </div>
 
                                                             <div className="mb-4">
-                                                                <div className="text-sm font-semibold">Total Amount</div>
+                                                                <div className="text-sm font-semibold text-[#dd3333]">Total Amount</div>
                                                                 <div className="text-sm font-medium text-gray-900">Rs. {price * quantity}</div>
                                                             </div>
 
                                                             <div className="mb-4">
-                                                                <div className="text-sm font-semibold">Order Status</div>                              
+                                                                <div className="text-sm font-semibold text-[#dd3333]">Order Status</div>                              
                                                                   <div className="text-sm font-medium text-green-800 first-letter:uppercase">{status}</div>
                                                                
                                                             </div>

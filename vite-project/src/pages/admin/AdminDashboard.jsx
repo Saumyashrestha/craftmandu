@@ -16,7 +16,7 @@ const AdminDashboard = () => {
             {/* Top */}
             <div className="top mb-5 px-5 mt-5">
                 
-                    <h1 className=" text-center text-3xl font-bold text-[#dd3333] mt-8">Admin Dashboard</h1>
+                    <h1 className=" text-center text-3xl font-bold text-[#dd3333] mt-8">ADMIN DASHBOARD</h1>
                 
             </div>
 
@@ -24,7 +24,7 @@ const AdminDashboard = () => {
                 {/* Mid  */}
                 <div className="mid mb-5">
                     {/* main  */}
-                    <div className=" bg-[#f4c8c8] py-5 rounded-xl border border-[#dd3333]">
+                    <div className=" py-5 rounded-xl border border-[#dd3333]">
                     <div className="flex justify-center">
                             <i class= "fas fa-user fa-3x" ></i>
                         </div>
@@ -32,19 +32,19 @@ const AdminDashboard = () => {
                            <div className="">
                             {/* Name  */}
                             <h1 className=" text-center text-lg mt-4">
-                                <span className=" font-bold text-[#dd3333]">Name : </span>
+                                <span className=" font-semibold text-[#dd3333]">Name : </span>
                                 {user?.name}
                             </h1>
 
                             {/* Email  */}
                             <h1 className=" text-center text-lg">
-                                <span className=" font-bold text-[#dd3333]">Email : </span>
+                                <span className=" font-semibold text-[#dd3333]">Email : </span>
                                 {user?.email}
                             </h1>
 
                             {/* Date  */}
                             <h1 className=" text-center text-lg">
-                                <span className=" font-bold text-[#dd3333]">Date : </span>
+                                <span className=" font-semibold text-[#dd3333]">Date : </span>
                                 {user?.date}
                             </h1>
 
@@ -59,7 +59,7 @@ const AdminDashboard = () => {
                         <TabList className="flex flex-wrap -m-4 text-center justify-center">
                             {/* Total Products */}
                             <Tab className="p-4 md:w-1/3 sm:w-1/2 w-full cursor-pointer">
-                                <div className=" border bg-[#f4c8c8] hover:bg-[#eb9696] border-[#dd3333] px-4 py-3 rounded-xl" >
+                                <div className=" border hover:bg-[#fbe8e8] border-[#dd3333] px-4 py-3 rounded-xl" >
                                     <div className="text-[#dd3333] w-12 h-12 mb-3 inline-block" >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
 
                             {/* Total Order  */}
                             <Tab className="p-4 md:w-1/4 sm:w-1/2 w-full cursor-pointer">
-                                <div className=" border bg-[#f4c8c8] hover:bg-[#eb9696] border-[#dd3333] px-4 py-3 rounded-xl" >
+                                <div className=" border hover:bg-[#fbe8e8] border-[#dd3333] px-4 py-3 rounded-xl" >
                                     <div className="text-[#dd3333] w-12 h-12 mb-3 inline-block" >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ const AdminDashboard = () => {
 
                             {/* Total User  */}
                             <Tab className="p-4 md:w-1/3 sm:w-1/2 w-full cursor-pointer">
-                                <div className=" border bg-[#f4c8c8] hover:bg-[#eb9696] border-[#dd3333] px-4 py-3 rounded-xl" >
+                                <div className=" border hover:bg-[#fbe8e8] border-[#dd3333] px-4 py-3 rounded-xl" >
                                     <div className="text-[#dd3333] w-12 h-12 mb-3 inline-block" >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
