@@ -79,7 +79,7 @@ const Navbar = () => {
     );
 
     return (
-        <nav className=" bg-white sticky top-0 shadow-md">
+        <nav className=" bg-white sticky top-0 shadow-md z-50">
             {/* main  */}
             <div className="playfair lg:flex lg:justify-between items-center py-3 lg:px-10 ">
                 {/* left side (Logo and Left Links) */}
