@@ -9,29 +9,23 @@ import Layout from "../../components/layout/Layout";
 
 const categoryList = [
     {
-        name: 'fashion'
+        name: 'Christmas'
     },
     {
-        name: 'shirt'
+        name: 'Halloween'
     },
     {
-        name: 'jacket'
+        name: 'Birds & Animals'
     },
     {
-        name: 'mobile'
+        name: 'Plants & Flowers'
     },
     {
-        name: 'laptop'
+        name: 'Fairy & Gnome'
     },
     {
-        name: 'shoes'
+        name: 'Decorative'
     },
-    {
-        name: 'home'
-    },
-    {
-        name: 'books'
-    }
 ]
 
 const AddProductPage = () => {
@@ -71,32 +65,39 @@ const AddProductPage = () => {
         try {
             const productRef = collection(fireDB, 'products');
             await addDoc(productRef, product)
-            toast.success("Added product successfully");
+            toast.success("Added product successfully!");
             navigate('/admin-dashboard')
             setLoading(false)
         } catch (error) {
             console.log(error);
             setLoading(false)
-            toast.error("Failed to add product");
+            toast.error("Failed to add product!");
         }
 
     }
     return (
         <Layout>
         <div className="playfair">
-            <div className='flex justify-center items-center h-screen'>
+            <div 
+                className='relative flex justify-center items-center h-screen'
+                style={{ backgroundImage: "url('src/components/heroSection/hero.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+            >
+                {/* Overlay for low opacity effect */}
+                <div className="absolute inset-0 bg-black opacity-60"></div>
+    
                 {loading && <Loader />}
-                {/* Login Form  */}
-                <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
-
-                    {/* Top Heading  */}
+    
+                {/* Login Form */}
+                <div className="login_Form bg-[#f2f0ef] relative z-10 px-8 py-6 border border-[#dd3333] rounded-xl shadow-md bg-white">
+                    
+                    {/* Top Heading */}
                     <div className="mb-5">
-                        <h2 className='text-center text-2xl font-bold text-pink-500 '>
-                            Add Product
+                        <h2 className='text-center text-2xl font-bold text-[#dd3333] '>
+                            ADD PRODUCT
                         </h2>
                     </div>
-
-                    {/* Input One  */}
+    
+                    {/* Input One */}
                     <div className="mb-3">
                         <input
                             type="text"
@@ -109,11 +110,11 @@ const AddProductPage = () => {
                                 })
                             }}
                             placeholder='Product Title'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className=' border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md shadow-md outline-none placeholder-gray-600'
                         />
                     </div>
-
-                    {/* Input Two  */}
+    
+                    {/* Input Two */}
                     <div className="mb-3">
                         <input
                             type="number"
@@ -126,11 +127,11 @@ const AddProductPage = () => {
                                 })
                             }}
                             placeholder='Product Price'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className=' border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none shadow-md placeholder-gray-600'
                         />
                     </div>
-
-                    {/* Input Three  */}
+    
+                    {/* Input Three */}
                     <div className="mb-3">
                         <input
                             type="text"
@@ -143,11 +144,11 @@ const AddProductPage = () => {
                                 })
                             }}
                             placeholder='Product Image Url'
-                            className='bg-pink-50 border text-pink-300 border-pink-200 px-2 py-2 w-96 rounded-md outline-none placeholder-pink-300'
+                            className=' border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none shadow-md placeholder-gray-600'
                         />
                     </div>
-
-                    {/* Input Four  */}
+    
+                    {/* Input Four */}
                     <div className="mb-3">
                         <select
                             value={product.category}
@@ -157,7 +158,7 @@ const AddProductPage = () => {
                                     category: e.target.value
                                 })
                             }}
-                            className="w-full px-1 py-2 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none  ">
+                            className="w-full px-1 py-2 text-gray-800  border border-[#dd3333] rounded-md outline-none  ">
                             <option disabled>Select Product Category</option>
                             {categoryList.map((value, index) => {
                                 const { name } = value
@@ -167,8 +168,8 @@ const AddProductPage = () => {
                             })}
                         </select>
                     </div>
-
-                    {/* Input Five  */}
+    
+                    {/* Input Five */}
                     <div className="mb-3">
                         <textarea
                             value={product.description}
@@ -177,25 +178,29 @@ const AddProductPage = () => {
                                     ...product,
                                     description: e.target.value
                                 })
-                            }} name="description" placeholder="Product Description" rows="5" className=" w-full px-2 py-1 text-pink-300 bg-pink-50 border border-pink-200 rounded-md outline-none placeholder-pink-300 ">
-
-                        </textarea>
+                            }} 
+                            name="description" 
+                            placeholder="Product Description" 
+                            rows="5" 
+                            className="w-full px-2 py-1 text-gray-800 border border-[#dd3333] shadow-md rounded-md outline-none placeholder-gray-600 "
+                        ></textarea>
                     </div>
-
-                    {/* Add Product Button  */}
+    
+                    {/* Add Product Button */}
                     <div className="mb-3">
                         <button
                             onClick={addProductFunction}
                             type='button'
-                            className='bg-pink-500 hover:bg-pink-600 w-full text-white text-center py-2 font-bold rounded-md '
+                            className='bg-[#dd3333] hover:bg-[#f44444] w-full shadow-md text-white text-center py-2 font-bold rounded-md '
                         >
-                            Add Product
+                            ADD PRODUCT
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        </Layout>
+    </Layout>
+    
     );
 }
 
