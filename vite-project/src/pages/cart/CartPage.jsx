@@ -8,6 +8,7 @@ import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 import BuyNowModal from "../../components/buyNowModal/BuyNowModal";
 import { Navigate } from "react-router";
+import { v4 as uuidv4 } from 'uuid';
 
 const CartPage = () => {
     const cartItems = useSelector((state) => state.cart);
@@ -67,9 +68,10 @@ const CartPage = () => {
         const orderInfo = {
             cartItems,
             addressInfo,
+            orderID: uuidv4(),
             email: user.email,
             userid: user.uid,
-            status: "Confirmed",
+            status: "Pending",
             time: Timestamp.now(),
             date: new Date().toLocaleString(
                 "en-US",
