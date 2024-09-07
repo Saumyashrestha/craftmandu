@@ -7,20 +7,30 @@ import toast from "react-hot-toast";
 const OrderDetail = () => {
   const context = useContext(myContext);
   const { getAllOrder, orderDelete } = context;
-  
 
   const markAsDelivered = async (orderId) => {
     const orderRef = doc(fireDB, "order", orderId); // Fetch the specific order by ID
     try {
-        await updateDoc(orderRef, {
-            status: "Delivered"
-        });
-        toast.success("Status updated to Delivered");
+      await updateDoc(orderRef, {
+        status: "Delivered",
+      });
+      toast.success("Status updated to Delivered");
     } catch (error) {
-        console.error("Error updating document: ", error);
+      console.error("Error updating document: ", error);
     }
-};
+  };
 
+  const markAsPending = async (orderId) => {
+    const orderRef = doc(fireDB, "order", orderId); // Fetch the specific order by ID
+    try {
+      await updateDoc(orderRef, {
+        status: "Pending",
+      });
+      toast.success("Status updated to Pending");
+    } catch (error) {
+      console.error("Error updating document: ", error);
+    }
+  };
 
   return (
     <div className="playfair">
@@ -96,6 +106,13 @@ const OrderDetail = () => {
                   className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100"
                 >
                   Status
+                </th>
+
+                <th
+                  scope="col"
+                  className="h-12 px-6 text-md font-bold fontPara border-l first:border-l-0 border-pink-100 text-slate-700 bg-slate-100"
+                >
+                  Change Status
                 </th>
 
                 <th
@@ -194,14 +211,32 @@ const OrderDetail = () => {
                             ₹{price * quantity}
                           </td>
 
+                          <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
+                          {order.status === "Pending" ? (
+                            <span className="text-[#7bb421]">{order.status}</span>
+                            ) : (
+                              <span className="text-[#000000]">{order.status}</span>   
+                            )}       
+                          </td> 
+
                           <td className="h-12 px-6 text-md transition duration-300 border-t border-l text-green-600  first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            <button
-                              onClick={() => markAsDelivered(order.id)}
-                              className="text-blue underline hover:text-[#dd3333]"
-                            >
-                              Mark as Delivered
-                            </button>
+                            {order.status === "Pending" ? (
+                              <button
+                                onClick={() => markAsDelivered(order.id)}
+                                className="text-black underline hover:text-[#dd3333]"
+                              >
+                                Mark as Delivered
+                              </button>
+                            ) : (
+                                <button
+                                onClick={() => markAsPending(order.id)}
+                                className="text-black underline hover:text-[#dd3333]"
+                              >
+                                Mark as Pending
+                              </button>
+                            )}
                           </td>
+                          
 
                           <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
                             {order.addressInfo.name}
