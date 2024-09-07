@@ -6,26 +6,16 @@ import { fireDB } from "../../firebase/FirebaseConfig";
 import { useNavigate } from "react-router";
 import Loader from "../../components/loader/Loader";
 import Layout from "../../components/layout/Layout";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
+// Category list
 const categoryList = [
-  {
-    name: "Christmas",
-  },
-  {
-    name: "Halloween",
-  },
-  {
-    name: "Birds & Animals",
-  },
-  {
-    name: "Plants & Flowers",
-  },
-  {
-    name: "Fairy & Gnome",
-  },
-  {
-    name: "Decorative",
-  },
+  { name: "Christmas" },
+  { name: "Halloween" },
+  { name: "Birds & Animals" },
+  { name: "Plants & Flowers" },
+  { name: "Fairy & Gnome" },
+  { name: "Decorative" },
 ];
 
 const AddProductPage = () => {
@@ -39,7 +29,7 @@ const AddProductPage = () => {
   const [product, setProduct] = useState({
     title: "",
     price: "",
-    productImageUrl: "",
+    productImageFile: null, // Image file will be stored here
     category: "",
     description: "",
     quantity: 1,
@@ -51,31 +41,63 @@ const AddProductPage = () => {
     }),
   });
 
+  // Handle file selection
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setProduct({
+        ...product,
+        productImageFile: e.target.files[0],
+      });
+    }
+  };
+
   // Add Product Function
   const addProductFunction = async () => {
+    console.log("Add Product Button Clicked"); // For debugging
+
+    // Validate fields
     if (
-      product.title == "" ||
-      product.price == "" ||
-      product.productImageUrl == "" ||
-      product.category == "" ||
-      product.description == ""
+      product.title === "" ||
+      product.price === "" ||
+      product.productImageFile == null ||
+      product.category === "" ||
+      product.description === ""
     ) {
       return toast.error("All fields are required");
     }
 
     setLoading(true);
     try {
+      // Upload the image to Firebase Storage
+      const storage = getStorage();
+      const storageRef = ref(
+        storage,
+        `products/${product.productImageFile.name}`
+      );
+      const snapshot = await uploadBytes(storageRef, product.productImageFile);
+      const imageUrl = await getDownloadURL(snapshot.ref);
+
+      // Create a new product object with the image URL
+      const newProduct = {
+        ...product,
+        productImageUrl: imageUrl, // Image URL after upload
+        productImageFile: null, // Clear file from state
+      };
+
+      // Firestore reference
       const productRef = collection(fireDB, "products");
-      await addDoc(productRef, product);
+      await addDoc(productRef, newProduct);
+
       toast.success("Added product successfully!");
       navigate("/admin-dashboard");
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      console.error("Error adding product:", error);
       setLoading(false);
       toast.error("Failed to add product!");
     }
   };
+
   return (
     <Layout>
       <div className="playfair">
@@ -92,16 +114,16 @@ const AddProductPage = () => {
 
           {loading && <Loader />}
 
-          {/* Login Form */}
+          {/* Product Form */}
           <div className="login_Form bg-[#f2f0ef] relative z-10 px-8 py-6 border border-[#dd3333] rounded-xl shadow-md bg-white">
-            {/* Top Heading */}
+            {/* Heading */}
             <div className="mb-5">
               <h2 className="text-center text-2xl font-bold text-[#dd3333] ">
                 ADD PRODUCT
               </h2>
             </div>
 
-            {/* Input One */}
+            {/* Product Title */}
             <div className="mb-3">
               <input
                 type="text"
@@ -118,7 +140,7 @@ const AddProductPage = () => {
               />
             </div>
 
-            {/* Input Two */}
+            {/* Product Price */}
             <div className="mb-3">
               <input
                 type="number"
@@ -135,24 +157,17 @@ const AddProductPage = () => {
               />
             </div>
 
-            {/* Input Three */}
+            {/* Image File Input */}
             <div className="mb-3">
               <input
-                type="text"
-                name="productImageUrl"
-                value={product.productImageUrl}
-                onChange={(e) => {
-                  setProduct({
-                    ...product,
-                    productImageUrl: e.target.value,
-                  });
-                }}
-                placeholder="Product Image Url"
-                className=" border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none shadow-md placeholder-gray-600"
+                type="file"
+                name="productImageFile"
+                onChange={handleImageChange}
+                className=" border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none shadow-md"
               />
             </div>
 
-            {/* Input Four */}
+            {/* Product Category */}
             <div className="mb-3">
               <select
                 value={product.category}
@@ -197,7 +212,7 @@ const AddProductPage = () => {
               />
             </div>
 
-            {/* Input Five */}
+            {/* Product Description */}
             <div className="mb-3">
               <textarea
                 value={product.description}
