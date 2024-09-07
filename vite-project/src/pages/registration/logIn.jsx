@@ -48,13 +48,10 @@ const Login = () => {
             email: "",
             password: "",
           });
-          toast.success("Login Successfully");
+          toast.success("Logged In Successfully");
           setLoading(false);
-          if (user.role === "user") {
-            navigate("/user-dashboard");
-          } else {
-            navigate("/admin-dashboard");
-          }
+          navigate("/");
+          
         });
         return () => data;
       } catch (error) {
