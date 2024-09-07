@@ -25,6 +25,7 @@ import AboutUS from "./pages/about/Aboutus";
 import CategoryPage from './pages/category/CategoryPage';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faShoppingCart, faTrash } from "@fortawesome/free-solid-svg-icons";
+import Forgot from './pages/registration/forgotPassword';
 
 library.add(faShoppingCart, faTrash);
 
@@ -64,6 +65,7 @@ const App = () => {
 
           <Route path="/aboutus" element = {<AboutUS/>}/>
           <Route path="/category/:categoryname" element={<CategoryPage/>} />
+          <Route path="/forgot-password" element = {<Forgot/>}/>
         </Routes>
         <Toaster/>
       </Router>
