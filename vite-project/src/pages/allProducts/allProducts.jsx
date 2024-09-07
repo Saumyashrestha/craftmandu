@@ -38,11 +38,11 @@ const AllProduct = () => {
 
   return (
     <Layout>
-      <div className="py-8">
+      <div className="playfair py-8">
         {/* Heading  */}
         <div className="">
-          <h1 className=" text-center mb-5 text-2xl font-semibold">
-            All Products
+          <h1 className=" text-center mb-5 text-2xl text-[#dd3333] font-semibold">
+            ALL PRODUCTS
           </h1>
         </div>
 
@@ -59,21 +59,21 @@ const AllProduct = () => {
                     onClick={() => navigate(`/productinfo/${id}`)}
                     className="p-4 w-full md:w-1/4"
                   >
-                    <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
+                    <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer transform transition duration-300 ease-in-out hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] hover:scale-105">
                       <img
-                        className="lg:h-80  h-96 w-full"
+                        className="lg:h-80  h-96 w-full object-cover transition-all duration-300 ease-in-out"
                         src={productImageUrl}
                         alt="blog"
                       />
                       <div className="p-6">
-                        <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                          E-bharat
+                        <h2 className="tracking-widest text-xs title-font font-medium text-gray-600 mb-1">
+                          RS Craftmandu
                         </h2>
-                        <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                        <h1 className="title-font text-lg font-medium text-[#dd3333] mb-3">
                           {title.substring(0, 25)}
                         </h1>
                         <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                          ₹{price}
+                          Rs. {price}
                         </h1>
 
                         <div className="flex justify-center ">

@@ -51,15 +51,15 @@ const HomeProductCard = () => {
                   <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer transform transition duration-300 ease-in-out hover:shadow-[0_10px_25px_rgba(0,0,0,0.2)] hover:scale-105">
                     <img
                       
-                      className="lg:h-80 h-96 w-full object-cover transition-all duration-300 ease-in-out hover:opacity-70"
+                      className="lg:h-80 h-96 w-full object-cover transition-all duration-300 ease-in-out"
                       src={productImageUrl}
                       alt="image"
                     />
                     <div className="p-6">
-                      <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                      <h2 className="tracking-widest text-xs title-font font-medium text-gray-600 mb-1">
                         RS Craftmandu
                       </h2>
-                      <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                      <h1 className="title-font text-lg font-medium text-[#dd3333] mb-3">
                         {title.substring(0, 25)}
                       </h1>
                       <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
