@@ -99,15 +99,15 @@ const CartPage = () => {
         <Layout>
             <div className=" playfair container mx-auto px-4 max-w-7xl lg:px-0">
                 <div className="mx-auto max-w-2xl py-8 lg:max-w-7xl">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        Shopping Cart
+                    <h1 className="text-2xl font-bold tracking-tight text-[#dd3333] sm:text-3xl">
+                        SHOPPING CART
                     </h1>
                     <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
                         <section aria-labelledby="cart-heading" className="rounded-lg bg-white lg:col-span-8">
                             <h2 id="cart-heading" className="sr-only">
                                 Items in your shopping cart
                             </h2>
-                            <ul role="list" className="divide-y divide-gray-200">
+                            <ul role="list" className="divide-y divide-gray-300">
                                 {cartItems.length > 0 ?
 
                                     <>
@@ -129,7 +129,7 @@ const CartPage = () => {
                                                                 <div>
                                                                     <div className="flex justify-between">
                                                                         <h3 className="text-sm">
-                                                                            <div className="font-semibold text-black">
+                                                                            <div className="font-semibold text-[#dd3333]">
                                                                                 {title}
                                                                             </div>
                                                                         </h3>
@@ -139,7 +139,7 @@ const CartPage = () => {
                                                                     </div>
                                                                     <div className="mt-1 flex items-end">
                                                                         <p className="text-sm font-medium text-gray-900">
-                                                                            ₹{price}
+                                                                            Rs. {price}
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -181,17 +181,18 @@ const CartPage = () => {
                             aria-labelledby="summary-heading"
                             className="mt-16 rounded-md bg-white lg:col-span-4 lg:mt-0 lg:p-0"
                         >
+                            <div className="bg-[#f9f9f9] border border-[#dd3333] px-4 py-6 rounded-md shadow-md">
                             <h2
                                 id="summary-heading"
-                                className=" border-b border-gray-200 px-4 py-3 text-lg font-medium text-gray-900 sm:p-4"
+                                className=" border-b border-gray-400 px-4 py-3 text-lg font-semibold text-[#dd3333] sm:p-4"
                             >
                                 Price Details
                             </h2>
                             <div>
                                 <dl className=" space-y-1 px-2 py-4">
                                     <div className="flex items-center justify-between">
-                                        <dt className="text-sm text-gray-800">Price ({cartItemTotal} item)</dt>
-                                        <dd className="text-sm font-medium text-gray-900">₹ {cartTotal}</dd>
+                                        <dt className="text-sm text-gray-800">Price ({cartItemTotal} item(s))</dt>
+                                        <dd className="text-sm font-medium text-gray-900">Rs. {cartTotal}</dd>
                                     </div>
                                     <div className="flex items-center justify-between py-4">
                                         <dt className="flex text-sm text-gray-800">
@@ -200,8 +201,8 @@ const CartPage = () => {
                                         <dd className="text-sm font-medium text-green-700">Free</dd>
                                     </div>
                                     <div className="flex items-center justify-between border-y border-dashed py-4 ">
-                                        <dt className="text-base font-medium text-gray-900">Total Amount</dt>
-                                        <dd className="text-base font-medium text-gray-900">₹ {cartTotal}</dd>
+                                        <dt className="text-base font-medium text-[#dd3333]">Total Amount</dt>
+                                        <dd className="text-base font-medium text-gray-900">Rs. {cartTotal}</dd>
                                     </div>
                                 </dl>
                                 <div className="px-2 pb-4 font-medium text-green-700">
@@ -211,8 +212,10 @@ const CartPage = () => {
                                                 addressInfo={addressInfo}
                                                 setAddressInfo={setAddressInfo}
                                                 buyNowFunction={buyNowFunction}
+                                                className="bg-[#dd3333] hover:bg-[#f44444] shadow-md py-2 px-4 rounded-md transition duration-300 ease-in-out" 
                                             /> : <Navigate to={'/login'}/>
                                         }
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -220,6 +223,7 @@ const CartPage = () => {
                     </form>
                 </div>
             </div>
+            
         </Layout>
     );
 }
