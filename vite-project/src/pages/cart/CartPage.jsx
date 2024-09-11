@@ -188,7 +188,7 @@ const CartPage = () => {
                                 id="summary-heading"
                                 className=" border-b border-gray-400 px-4 py-3 text-lg font-semibold text-[#dd3333] sm:p-4"
                             >
-                                Price Details
+                                Order Summary
                             </h2>
                             <div>
                                 <dl className=" space-y-1 px-2 py-4">
