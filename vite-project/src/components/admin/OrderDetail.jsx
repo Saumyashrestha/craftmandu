@@ -193,7 +193,7 @@ const OrderDetail = () => {
                           </td>
 
                           <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            ₹{price}
+                            Rs. {price}
                           </td>
 
                           <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
@@ -201,7 +201,7 @@ const OrderDetail = () => {
                           </td>
 
                           <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
-                            ₹{price * quantity}
+                            Rs. {price * quantity}
                           </td>
 
                           <td className="h-12 px-6 text-md transition duration-300 border-t border-l first:border-l-0 border-pink-100 stroke-slate-500 text-slate-500 first-letter:uppercase ">
