@@ -1,0 +1,174 @@
+/* eslint-disable react/no-unescaped-entities */
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import myContext from "../../context/myContext";
+import { Timestamp, addDoc, collection } from "firebase/firestore";
+import { auth, fireDB } from "../../firebase/FirebaseConfig";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import toast from "react-hot-toast";
+import Loader from "../../components/loader/Loader";
+import Layout from "../../components/layout/Layout";
+
+const Signup = () => {
+    const context = useContext(myContext);
+    const {loading, setLoading } = context;
+
+    // navigate 
+    const navigate = useNavigate();
+
+    // User Signup State 
+    const [userSignup, setUserSignup] = useState({
+        name: "",
+        email: "",
+        password: "",
+        role: "user"
+    });
+
+    /**========================================================================
+     *                          User Signup Function 
+    *========================================================================**/
+
+    const userSignupFunction = async () => {
+        // validation 
+        if (userSignup.name === "" || userSignup.email === "" || userSignup.password === "") {
+            toast.error("All Fields are required")
+        }
+
+        setLoading(true);
+        try {
+            const users = await createUserWithEmailAndPassword(auth, userSignup.email, userSignup.password);
+
+            // create user object
+            const user = {
+                name: userSignup.name,
+                email: users.user.email,
+                uid: users.user.uid,
+                role: userSignup.role,
+                time: Timestamp.now(),
+                date: new Date().toLocaleString(
+                    "en-US",
+                    {
+                        month: "short",
+                        day: "2-digit",
+                        year: "numeric",
+                    }
+                )
+            }
+
+            // create user Refrence
+            const userRefrence = collection(fireDB, "user");
+
+            // Add User Detail
+            addDoc(userRefrence, user);
+
+            setUserSignup({
+                name: "",
+                email: "",
+                password: ""
+            })
+
+            toast.success("Signed Up Successfully");
+
+            setLoading(false);
+            navigate('/login')
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+
+    }
+    return (
+        <Layout>
+        <div className='playfair flex justify-center items-center h-screen'>
+            {loading && <Loader/>}
+
+            {/* Image Section */}
+            <div className="hidden lg:flex w-2/3 h-full relative bg-cover bg-center" style={{ backgroundImage: "url('src/components/heroSection/hero.png')" }}>
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center">
+                    <h1 className="text-white text-4xl font-bold">RS Craftmandu</h1>
+                </div>
+            </div>
+
+            {/* Login Form  */}
+            <div className="login_Form px-8 py-6 lg:w-2/3 flex flex-col justify-center items-center h-full  shadow-md">
+
+                {/* Top Heading  */}
+                <div className="mb-2 text-center">
+                    <h2 className='text-2xl font-bold text-[#dd3333] '>
+                        Signup
+                    </h2>
+                    <p className="text-gray-700 mt-2">
+                        Welcome to RS Craftmandu! Please enter your details.
+                    </p>
+                </div>
+
+                {/* Input One  */}
+                <div className="mb-4 w-96 flex mt-4 justify-center">
+                    <input
+                        type="text"
+                        placeholder='Full Name'
+                        value={userSignup.name}
+                        onChange={(e) => {
+                            setUserSignup({
+                                ...userSignup,
+                                name: e.target.value
+                            })
+                        }}
+                        className=' shadow-md border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
+                    />
+                </div>
+
+                {/* Input Two  */}
+                <div className="mb-5 w-full flex justify-center">
+                    <input
+                        type="email"
+                        placeholder='Email Address'
+                        value={userSignup.email}
+                        onChange={(e) => {
+                            setUserSignup({
+                                ...userSignup,
+                                email: e.target.value
+                            })
+                        }}
+                        className=' shadow-md border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
+                    />
+                </div>
+
+                {/* Input Three  */}
+                <div className="mb-5">
+                    <input
+                        type="password"
+                        placeholder='Password'
+                        value={userSignup.password}
+                        onChange={(e) => {
+                            setUserSignup({
+                                ...userSignup,
+                                password: e.target.value
+                            })
+                        }}
+                        className=' shadow-md  border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
+                    />
+                </div>
+
+                {/* Signup Button  */}
+                <div className="mb-5 w-full flex justify-center mt-4">
+                    <button
+                        type='button'
+                        onClick={userSignupFunction}
+                        className=' bg-[#dd3333] hover:bg-[#f44444] shadow-md w-96 text-white text-center py-2 font-semibold rounded-md '
+                    >
+                        SIGNUP
+                    </button>
+                </div>
+
+                <div>
+                    <h2 className=' text-black'>Already have an account? <Link className=' text-[#dd3333] hover:text-[#f44444] underline underline-offset-2 ' to={'/login'}>Login</Link></h2>
+                </div>
+
+            </div>
+        </div>
+        </Layout>
+    );
+}
+
+export default Signup;

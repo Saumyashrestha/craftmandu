@@ -1,0 +1,11 @@
+
+
+@font-face {
+  font-family: playfair;
+  src: url(/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+.playfair {
+  font-family: playfair;
+}
+
