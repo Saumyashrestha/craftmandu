@@ -83,7 +83,7 @@ const Signup = () => {
             {loading && <Loader/>}
 
             {/* Image Section */}
-            <div className="hidden lg:flex w-2/3 h-full relative bg-cover bg-center" style={{ backgroundImage: "url('src/components/heroSection/hero.png')" }}>
+            <div className="hidden lg:flex w-2/3 h-full relative bg-cover bg-center" style={{ backgroundImage: "url('/images/hero.png')" }}>
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center">
                     <h1 className="text-white text-4xl font-bold">RS Craftmandu</h1>
                 </div>
