@@ -85,7 +85,7 @@ const HeroSection = () => {
 
       <img
         className="md:w-2/3 h-full object-cover sd:order-1"
-        src="/images/hero.png"
+        src="./hero.png"
         alt="image_hero_section"
       />
     </div>
