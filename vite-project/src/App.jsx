@@ -12,7 +12,7 @@ import ScrollTop from "./components/scrollTop/scrollTop";
 import CartPage from "./pages/cart/CartPage";
 import AllProducts from "./pages/allProducts/allProducts";
 import LogIn from "./pages/registration/logIn";
-import SignUp from "./pages/registration/signup";
+import SignUp from "./pages/registration/signUp";
 import UserDashboard from "./pages/user/UserDashboard";
 import MyState from "./context/myState";
 import { Toaster } from "react-hot-toast";
