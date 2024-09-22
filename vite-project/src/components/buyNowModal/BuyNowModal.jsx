@@ -10,6 +10,8 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => setOpen(!open);
+
+
     return (
         <>
             <Button
@@ -52,8 +54,6 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                         />
                     </div>
 
-                  
-
                     <div className="mb-3">
                         <input
                             type="text"
@@ -77,6 +77,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                             onClick={() => {
                                 handleOpen();
                                 buyNowFunction();
+                                
                             }}
                             className="w-full px-4 py-3 text-center text-gray-100 bg-[#dd3333] hover:bg-[#f44444] border border-transparent dark:border-gray-700 rounded-lg"
                         >

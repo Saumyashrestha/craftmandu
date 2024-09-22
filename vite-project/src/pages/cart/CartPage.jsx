@@ -45,7 +45,6 @@ const CartPage = () => {
     const [addressInfo, setAddressInfo] = useState({
         name: "",
         address: "",
-        pincode: "",
         mobileNumber: "",
         time: Timestamp.now(),
         date: new Date().toLocaleString(
@@ -60,7 +59,7 @@ const CartPage = () => {
 
     const buyNowFunction = () => {
         // validation 
-        if (addressInfo.name === "" || addressInfo.address === "" || addressInfo.pincode === "" || addressInfo.mobileNumber === "") {
+        if (addressInfo.name === "" || addressInfo.address === "" ||  addressInfo.mobileNumber === "") {
             return toast.error("All Fields are required")
         }
 
@@ -88,7 +87,6 @@ const CartPage = () => {
             setAddressInfo({
                 name: "",
                 address: "",
-                pincode: "",
                 mobileNumber: "",
             })
             toast.success("Order Placed Successfull")
@@ -157,6 +155,7 @@ const CartPage = () => {
                                                                 type="text"
                                                                 className="mx-1 h-7 w-9 rounded-md border text-center"
                                                                 value={quantity}
+                                                                
                                                             />
                                                             <button onClick={() => handleIncrement(id)} type="button" className="flex h-7 w-7 items-center justify-center">
                                                                 +
