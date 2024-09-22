@@ -81,11 +81,12 @@ const Navbar = () => {
     return (
         <nav className=" bg-white sticky top-0 shadow-md z-50">
             {/* main  */}
-            <div className="playfair lg:flex lg:justify-between items-center py-3 lg:px-10 ">
+            <div className="playfair lg:flex lg:justify-between items-center h-20 lg:px-4 ">
                 {/* left side (Logo and Left Links) */}
                 <div className="flex items-center space-x-12">
                     <Link to={'/'}>
-                        <h2 className="sm: mb-5 md: mb-5 lg:mb-0  font-bold text-[#dd3333] text-2xl">RS Craftmandu</h2>
+                        <img src="public/logo.png"
+                        className="h-[170px] w-[170px] object-contain"/>
                     </Link>
                     <div className="sm: mb-5 md:mb-5 lg:mb-0"> {/* Added margin-left to create space between logo and nav links */}
                         {navListLeft}
