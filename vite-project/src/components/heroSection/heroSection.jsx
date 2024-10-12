@@ -42,8 +42,8 @@ const HeroSection = () => {
         {/* Apply text generation effect to headline */}
         <h1 className="text-4xl md:text-6xl font-bold text-[#dd3333] mb-4 " >
           <TextGenerateEffect words="FIND     FELT     ITEMS     THAT     MATCH     YOUR   STYLE" />
-        </h1>
-
+        </h1>   
+    
         {/* Apply text generation effect to paragraph */}
         <p className="text-lg md:text-xl text-gray-700 mb-8">
           <TextGenerateEffect words="Browse through our diverse range of meticulously crafted items, designed to bring out the light in your home." />
@@ -57,7 +57,7 @@ const HeroSection = () => {
 
         {/* Stats Section */}
         <div className="flex space-x-8 mt-8 items-start">
-          {/* First Stat */}
+          {/* First Stat */} 
           <div className="text-center">
             <h3 className="text-2xl font-semibold text-black">100+</h3>
             <p className="text-black">Products Available</p>
