@@ -31,6 +31,7 @@ const AddProductPage = () => {
     price: "",
     productImageFile: null, // Image file will be stored here
     category: "",
+    productCode: "",
     description: "",
     quantity: 1,
     time: Timestamp.now(),
@@ -61,7 +62,8 @@ const AddProductPage = () => {
       product.price === "" ||
       product.productImageFile == null ||
       product.category === "" ||
-      product.description === ""
+      product.description === "" ||
+      product.productCode === ""
     ) {
       return toast.error("All fields are required");
     }
@@ -115,7 +117,7 @@ const AddProductPage = () => {
           {loading && <Loader />}
 
           {/* Product Form */}
-          <div className="login_Form bg-[#f2f0ef] relative z-10 px-8 py-6 border border-[#dd3333] rounded-xl shadow-md bg-white">
+          <div className=" bg-[#f2f0ef] relative z-10 px-8 py-6 border border-[#dd3333] rounded-xl shadow-md bg-white">
             {/* Heading */}
             <div className="mb-5">
               <h2 className="text-center text-2xl font-bold text-[#dd3333] ">
@@ -195,6 +197,22 @@ const AddProductPage = () => {
               </select>
             </div>
 
+            <div className="mb-3">
+              <input
+                type="text"
+                name="productCode"
+                value={product.productCode}
+                onChange={(e) => {
+                  setProduct({
+                    ...product,
+                    productCode: e.target.value,
+                  });
+                }}
+                placeholder="Product Code"
+                className=" border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md shadow-md outline-none placeholder-gray-600"
+              />
+            </div>
+
             {/* Input for Quantity */}
             <div className="mb-3">
               <input
@@ -211,6 +229,7 @@ const AddProductPage = () => {
                 className=" border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none shadow-md placeholder-gray-600"
               />
             </div>
+
 
             {/* Product Description */}
             <div className="mb-3">
