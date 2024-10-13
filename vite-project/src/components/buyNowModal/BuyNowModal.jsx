@@ -37,7 +37,7 @@ const BuyNowModal = ({ addressInfo, setAddressInfo, buyNowFunction }) => {
                             placeholder='Enter your name'
                             className='bg-pink-50 border border-pink-200 px-2 py-2 w-full rounded-md outline-none text-pink-600 placeholder-pink-300'
                         />
-                    </div>
+                    </div> 
                     <div className="mb-3">
                         <input
                             type="text"
