@@ -85,7 +85,11 @@ const Navbar = () => {
                 {/* left side (Logo and Left Links) */}
                 <div className="flex items-center space-x-12">
                     <Link to={'/'}>
-                        <h2 className="sm: mb-5 md: mb-5 lg:mb-0  font-bold text-[#dd3333] text-2xl">RS Craftmandu</h2>
+                    <img 
+      src="/public/rslogo.png" 
+      alt="RS Craftmandu Logo" 
+      className="sm:mb-5 md:mb-5 lg:mb-0 h-12" // Adjust the height as needed
+    />
                     </Link>
                     <div className="sm: mb-5 md:mb-5 lg:mb-0"> {/* Added margin-left to create space between logo and nav links */}
                         {navListLeft}
