@@ -40,7 +40,7 @@ const UserDashboard = () => {
 
                             {/* Date  */}
                             <h1 className=" text-center text-lg">
-                                <span className=" text-[#dd3333] font-semibold">Date : </span>
+                                <span className=" text-[#dd3333] font-semibold">Date Joined : </span>
                                 {user?.date}
                             </h1>
 

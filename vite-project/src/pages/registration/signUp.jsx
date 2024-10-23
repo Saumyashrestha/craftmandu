@@ -150,6 +150,21 @@ const Signup = () => {
                     />
                 </div>
 
+                <div className="mb-5">
+                    <input
+                        type="password"
+                        placeholder='Re-Enter Password'
+                        value={userSignup.password}
+                        onChange={(e) => {
+                            setUserSignup({
+                                ...userSignup,
+                                password: e.target.value
+                            })
+                        }}
+                        className=' shadow-md  border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
+                    />
+                </div>
+
                 {/* Signup Button  */}
                 <div className="mb-5 w-full flex justify-center mt-4">
                     <button

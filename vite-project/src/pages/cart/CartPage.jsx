@@ -89,7 +89,7 @@ const CartPage = () => {
                 address: "",
                 mobileNumber: "",
             })
-            toast.success("Order Placed Successfull")
+            toast.success("Order Placed Successfully. Check Dashboard For More Info.")
         } catch (error) {
             console.log(error)
         }
@@ -174,7 +174,7 @@ const CartPage = () => {
                                     </>
                                     :
 
-                                    <h1>Not Found</h1>}
+                                    <h1>No Items In Cart</h1>}
                             </ul>
                         </section>
                         {/* Order summary */}
@@ -196,6 +196,12 @@ const CartPage = () => {
                                         <dd className="text-sm font-medium text-gray-900">Rs. {cartTotal}</dd>
                                     </div>
                                     <div className="flex items-center justify-between py-4">
+                                        <dt className="flex text-sm text-gray-800">
+                                            <span>Delivery Date</span>
+                                        </dt>
+                                        <dd className="text-sm font-medium text-gray-900">3rd December 2024</dd>
+                                    </div>
+                                    <div className="flex items-center justify-between py-1">
                                         <dt className="flex text-sm text-gray-800">
                                             <span>Delivery Charges</span>
                                         </dt>
