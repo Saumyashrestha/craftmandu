@@ -161,16 +161,12 @@ const ProductInfo = () => {
                                         <p className="font-semibold text-gray-700 dark:text-gray-400 mr-4">
                                             Size:
                                         </p>
-                                        <div className="flex space-x-2">
-                                            {['S', 'M', 'L', 'XL'].map((size) => (
-                                                <button
-                                                    key={size}
-                                                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
-                                                >
-                                                    {size}
-                                                </button>
-                                            ))}
-                                        </div>
+                                       <input
+                                       type="text"
+                                       placeholder="Dimensions (height x breadth x width (in mm))"
+                                       className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                                      
+                                       />
                                     </div>
                                 </div>
                                         <div className="mb-6 " />
