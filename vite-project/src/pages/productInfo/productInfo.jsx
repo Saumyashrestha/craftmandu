@@ -180,7 +180,7 @@ const ProductInfo = () => {
                                                     ?
                                                     <button
                                                         onClick={() => deleteCart(product)}
-                                                        className="w-full px-4 py-3 text-center text-white bg-[#db4444] border border-[#d83434]  hover:bg-[#f44444] hover:text-gray-200  rounded-xl"
+                                                        className="w-full px-4 py-3 text-center font-semibold text-white bg-[#db4444] border border-[#d83434]  hover:bg-[#f44444] hover:text-gray-200  rounded-xl"
                                                     >
                                                         DELETE FROM CART
                                                     </button>

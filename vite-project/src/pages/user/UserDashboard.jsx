@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Layout from "../../components/layout/Layout";
 import myContext from "../../context/myContext";
 import Loader from "../../components/loader/Loader";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 const UserDashboard = () => {
     // user
@@ -13,6 +14,23 @@ const UserDashboard = () => {
     // console.log(getAllOrder)
 
     // console.log(user)
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [newName, setNewName] = useState(user?.name || '');
+    const [newEmail, setNewEmail] = useState(user?.email || '');
+
+    // Function to open and close the modal
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
+
+    // Function to handle Save Changes
+    const handleSaveChanges = () => {
+        // Assuming user object is updated in localStorage
+        localStorage.setItem('users', JSON.stringify({ ...user, name: newName, email: newEmail }));
+        toggleModal(); // Close the modal after saving
+        // Add any additional actions like API call to save the updated details
+    };
+
     return (
         <Layout>
             <div className="playfair container mx-auto px-4 py-5 lg:py-8">
@@ -22,7 +40,7 @@ const UserDashboard = () => {
                     <div className="  py-5 rounded-xl border border-[#dd3333]">
                         {/* image  */}
                         <div className="flex justify-center">
-                            <i class= "fas fa-user fa-4x" ></i>
+                            <i class="fas fa-user fa-4x" ></i>
                         </div>
                         {/* text  */}
                         <div className="">
@@ -45,6 +63,14 @@ const UserDashboard = () => {
                             </h1>
 
                         </div>
+                        <div className="flex justify-center mt-4">
+                            <button
+                                onClick={toggleModal}
+                                className="text-[#dd3333] hover:text-[#f44444] font-semibold underline"
+                            >
+                                Edit Profile
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -56,7 +82,7 @@ const UserDashboard = () => {
                         <h2 className=" playfair text-2xl lg:text-3xl text-[#dd3333] font-bold">Order Details</h2>
 
                         <div className="flex justify-center relative top-10">
-                        {loading && <Loader/>}
+                            {loading && <Loader />}
                         </div>
 
                         {/* main 2 */}
@@ -82,7 +108,12 @@ const UserDashboard = () => {
                                                             </div>
 
                                                             <div className="mb-4">
-                                                                <div className="text-sm font-semibold text-[#dd3333]">Date</div>
+                                                                <div className="text-sm font-semibold text-[#dd3333]">Order Placed On</div>
+                                                                <div className="text-sm font-medium text-gray-900">{date}</div>
+                                                            </div>
+
+                                                            <div className="mb-4">
+                                                                <div className="text-sm font-semibold text-[#dd3333]">Delivery Date</div>
                                                                 <div className="text-sm font-medium text-gray-900">{date}</div>
                                                             </div>
 
@@ -92,9 +123,9 @@ const UserDashboard = () => {
                                                             </div>
 
                                                             <div className="mb-4">
-                                                                <div className="text-sm font-semibold text-[#dd3333]">Order Status</div>                              
-                                                                  <div className="text-sm font-medium text-green-800 first-letter:uppercase">{status}</div>
-                                                               
+                                                                <div className="text-sm font-semibold text-[#dd3333]">Order Status</div>
+                                                                <div className="text-sm font-medium text-green-800 first-letter:uppercase">{status}</div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -134,14 +165,96 @@ const UserDashboard = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        )
+                                        );
                                     })}
                                 </div>
-                            )
+                            );
                         })}
 
                     </div>
                 </div>
+
+                {isModalOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                        <div className="relative bg-[#f9f9f9] border-2 border-[#dd3333] shadow-md rounded-lg w-1/3 p-6">
+                        <button
+                                onClick={toggleModal}
+                                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            >
+                                <i className="fas fa-times"></i>
+                            </button>
+                            {/* Modal Title */}
+                            <h2 className="text-2xl font-semibold text-center text-[#dd3333] mb-6">Edit Your Profile</h2>
+                            {/* Name Input */}
+                            <div className="mb-4">
+                                <label className="block mb-1 text-sm text-[#dd3333] font-semibold">Name</label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter Your New Name"
+                                    value={newName}
+                                    onChange={(e) => setNewName(e.target.value)}
+                                    className="w-full p-2 border border-[#dd3333] shadow-md rounded-md"
+                                />
+                            </div>
+                            {/* Email Input */}
+                            <div className="mb-4">
+                                <label className="block mb-1 text-sm text-[#dd3333] font-semibold"> Email</label>
+                                <input
+                                    type="email"
+                                    placeholder="Enter Your New E-mail"
+                                    value={newEmail}
+                                    onChange={(e) => setNewEmail(e.target.value)}
+                                    className="w-full p-2 border  border-[#dd3333] shadow-md rounded-md"
+                                />
+                            </div>
+                            {/* Change Password Input */}
+                            <div className="mb-4">
+                                <label className="block mb-1 text-sm text-[#dd3333] font-semibold">New Password</label>
+                                <input
+                                    type="password"
+                                    placeholder="Enter Your New Password"
+                                    className="w-full p-2 border  border-[#dd3333] shadow-md rounded-md"
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label className="block mb-1 text-sm text-[#dd3333] font-semibold">Confirm New Password</label>
+                                <input
+                                    type="password"
+                                    placeholder="Re-Enter Your New Password"
+                                    className="w-full p-2 border  border-[#dd3333] shadow-md rounded-md"
+                                />
+                            </div>
+                            {/* Action Buttons */}
+                            <div className="flex flex-col">
+                                {/* Save Changes Button */}
+                                <button
+                                    className="w-full  py-3 bg-[#88C273] text-white rounded-md font-semibold hover:bg-[#A0D683]"
+                                    onClick={handleSaveChanges}
+                                >
+                                    Save Changes
+                                </button>
+                                {/* Delete Account Button */}
+                             
+                                    <button
+                                        className="w-full mt-4 py-2 bg-[#dd3333] text-white font-semibold rounded-md hover:bg-[#ff4444]"
+                                        onClick={() => alert('Delete account functionality')}
+                                    >
+                                        Delete Account
+                                    </button>
+                             
+
+
+                            </div>
+                            {/* Close Modal */}
+                            <button
+                                onClick={toggleModal}
+                                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            >
+                                <i className="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </Layout>
     );
