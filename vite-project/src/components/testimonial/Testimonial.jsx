@@ -48,7 +48,7 @@ const Testimonial = () => {
                         {/* Testimonial 1 */}
                         <motion.div className="lg:w-1/3 lg:mb-0 mb-6 p-4" variants={containerVariants}>
                             <div className="h-full text-center">
-                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="/public/maleicon.png" />
+                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="/maleicon.png" />
                                 <p className="leading-relaxed">I absolutely love the felt decorations I bought! The gnomes are beautifully crafted, and their vibrant colors add so much warmth to my space. They have a charming, handmade feel that really stands out compared to mass-produced items. Highly recommend for anyone looking to elevate their decor.</p>
                                 <span className="inline-block h-1 w-10 rounded bg-[#dd3333] mt-6 mb-4" />
                                 <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm uppercase">Riwaz Shrestha</h2>
@@ -70,7 +70,7 @@ const Testimonial = () => {
                         {/* Testimonial 3 */}
                         <motion.div className="lg:w-1/3 lg:mb-0 p-4" variants={containerVariants}>
                             <div className="h-full text-center">
-                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="/public/maleicon.png" />
+                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="/maleicon.png" />
                                 <p className="leading-relaxed">I was amazed by the craftsmanship of the felt rugs I bought. They are soft, durable, and the colors are just beautiful. These products have made my space feel warm and cozy! It's clear that a lot of care goes into making these products, and I appreciate the blend of artistry and practicality.</p>
                                 <span className="inline-block h-1 w-10 rounded bg-[#dd3333] mt-6 mb-4" />
                                 <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm uppercase">Abhyudit Adhikari</h2>
