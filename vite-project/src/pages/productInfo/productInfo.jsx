@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../redux/cartSlice";
 import toast from "react-hot-toast";
 
+
 const ProductInfo = () => {
     const context = useContext(myContext);
     const { loading, setLoading } = context;
@@ -76,10 +77,10 @@ const ProductInfo = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="w-full px-4 md:w-1/2">
+                                <div className=" playfair w-full px-4 md:w-1/2">
                                     <div className="lg:pl-20">
                                         <div className="mb-6 ">
-                                            <h2 className="max-w-xl mb-6 text-xl font-semibold leading-loose tracking-wide text-gray-700 md:text-2xl dark:text-gray-300">
+                                            <h2 className="max-w-xl mb-6 text-xl font-semibold leading-loose tracking-wide text-[#dd3333] md:text-2xl dark:text-gray-300">
                                                 {product?.title}
                                             </h2>
                                             <div className="flex flex-wrap items-center mb-6">
@@ -147,12 +148,31 @@ const ProductInfo = () => {
                                             </p>
                                         </div>
                                         <div className="mb-6">
-                                            <h2 className="mb-2 text-lg font-bold text-gray-700 dark:text-gray-400">
-                                                Description :
+                                            <h2 className="mb-2 text-lg font-bold text-[#dd3333] dark:text-gray-400">
+                                                Description:
                                             </h2>
                                             <p>{product?.description}</p>
                                         </div>
-
+                                        <div className="border border-[#dd3333] shadow-md bg-[#f9f9f9] p-4 rounded-lg mb-6">
+                                    <p className="font-semibold text-gray-700 dark:text-gray-400 mb-2">
+                                        Product Code: 1247
+                                    </p>
+                                    <div className="flex items-center">
+                                        <p className="font-semibold text-gray-700 dark:text-gray-400 mr-4">
+                                            Size:
+                                        </p>
+                                        <div className="flex space-x-2">
+                                            {['S', 'M', 'L', 'XL'].map((size) => (
+                                                <button
+                                                    key={size}
+                                                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600"
+                                                >
+                                                    {size}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
                                         <div className="mb-6 " />
                                         <div className="flex flex-wrap items-center mb-6">
 
@@ -162,14 +182,14 @@ const ProductInfo = () => {
                                                         onClick={() => deleteCart(product)}
                                                         className="w-full px-4 py-3 text-center text-white bg-[#db4444] border border-[#d83434]  hover:bg-[#f44444] hover:text-gray-200  rounded-xl"
                                                     >
-                                                        Delete From Cart
+                                                        DELETE FROM CART
                                                     </button>
                                                     :
                                                     <button
                                                         onClick={() => addCart(product)}
                                                         className="w-full px-4 py-3 text-center font-semibold text-white bg-[#db4444] border border-[#d83434]  hover:bg-[#f44444] hover:text-gray-200  rounded-xl"
                                                     >
-                                                        Add To Cart
+                                                        ADD TO CART
                                                     </button>
                                                 }
                                         </div>
