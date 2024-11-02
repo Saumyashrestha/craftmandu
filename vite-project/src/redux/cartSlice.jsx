@@ -3,36 +3,38 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = JSON.parse(localStorage.getItem('cart')) ?? [];
 
 export const cartSlice = createSlice({
-    name : 'cart',
+    name: 'cart',
     initialState,
     reducers: {
-        addToCart (state, action){
+        addToCart(state, action) {
             state.push(action.payload);
         },
-        deleteFromCart (state, action){
-            return state.filter(item => item.id != action.payload.id)
+        deleteFromCart(state, action) {
+            return state.filter(item => item.id != action.payload.id);
         },
-        incrementQuantity (state, action){
+        incrementQuantity(state, action) {
             state = state.map(item => {
-                if (item.id == action.payload){
+                if (item.id == action.payload) {
                     item.quantity++;
                 }
                 return item;
             });
         },
-        decrementQuantity: (state, action) => {
-            state=state.map(item => {
+        decrementQuantity(state, action) {
+            state = state.map(item => {
                 if (item.quantity != 1) {
                     if (item.id == action.payload) {
                         item.quantity--;
                     }
                 }
                 return item;
-            })
+            });
+        },
+        clearCart(state) {
+            return []; 
         }
     }
+});
 
-})
-
-export const { addToCart, deleteFromCart, incrementQuantity, decrementQuantity } = cartSlice.actions
-export default cartSlice.reducer
+export const { addToCart, deleteFromCart, incrementQuantity, decrementQuantity, clearCart } = cartSlice.actions;
+export default cartSlice.reducer;

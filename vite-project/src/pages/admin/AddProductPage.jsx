@@ -181,7 +181,7 @@ const AddProductPage = () => {
                 }}
                 className="w-full px-1 py-2 text-gray-800  border border-[#dd3333] rounded-md outline-none  "
               >
-                <option disabled>Select Product Category</option>
+                <option >Select Product Category</option>
                 {categoryList.map((value, index) => {
                   const { name } = value;
                   return (

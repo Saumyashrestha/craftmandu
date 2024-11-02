@@ -70,7 +70,7 @@ function MyState({ children }) {
     }
 
 
-    // Delete oder Function
+    // Delete order Function
     const orderDelete = async (id) => {
         setLoading(true)
         try {
