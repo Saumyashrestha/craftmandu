@@ -21,6 +21,11 @@ const Navbar = () => {
     //cartItems
     const cartItems = useSelector((state) => state.cart);
     
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    // toggle dropdown
+    const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+
     // navList Data
     const navListLeft = (
         <ul className="flex space-x-10 text-black font-medium text-md ">
@@ -49,22 +54,36 @@ const Navbar = () => {
 
     const navListRight = (
         <ul className="flex space-x-10 text-black font-medium text-md relative">
-            {user && (
-                <li className="relative">
-                    <i className="fas fa-user-circle text-2xl hover:text-[#dd3333]"
-                    onClick={toggleDropdown}></i>
-                    {showDropdown && (
-                        <div className="absolute right-0 mt-2 w-40 bg-green shadow-lg rounded-md text-sm">
-                            <Link to = {'/profile'} className="block px-4 py-2 hover:bg-gray-100 "> Profile </Link>
-                            <Link to = {'/settings'} className="block px-4 py-2 hover:bg-gray-100 "> Settings </Link>
-                            <button onClick={logout} className="block w-full text-left px-4 py-2 hover:bg-gray-100">Logout</button>
-                        </div>
-                    )}
-                </li>
-            )}
             {/* Profile */}
+            {user && (
+                 <li className="relative cursor-pointer">
+                 <i 
+                     className="fas fa-user-circle text-2xl hover:text-[#dd3333]" 
+                     onClick={toggleDropdown}
+                 ></i>
+                 {dropdownOpen && (
+                     <ul className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-md w-40 text-md">
+                         <li>
+                             <Link to={'/profile'} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Profile</Link>
+                         </li>
+                         <li>
+                             <Link to={'/settings'} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Settings</Link>
+                         </li>
+                         <hr className="border-t border-gray-300 my-1" />
+                         <li className="cursor-pointer" onClick={logout}>
+                             <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</span>
+                         </li>
+                     </ul>
+                 )}
+             </li>
+            )}
 
-            
+
+            {user?.role === "admin" && <li>
+                <Link to={'/admin-dashboard'} className="hover:text-[#dd3333]">
+                <i className="fas fa-user-circle text-2xl"></i>
+                </Link>
+            </li>} 
 
             {/* Cart */}
             <li>

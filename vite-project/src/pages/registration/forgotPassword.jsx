@@ -28,28 +28,20 @@ const Forgot = () => {
       {/* New Password Container */}
       <div className="border-2 bg-[#f9f9f9] border-[#dd3333] rounded-md shadow-md p-6 mt-20 max-w-md mx-auto">
         <h2 className="text-xl text-[#dd3333] font-semibold mb-4">Reset Your Password</h2>
-        <form onSubmit={(e) => handleConfirm(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="mb-4">
-            <label className="block mb-2">Enter New Password:</label>
+            <label className="block mb-2">Enter your email</label>
             <input
-              type="password"
+              type="text"
               className="border border-[#dd3333] rounded-md shadow-md w-full p-2"
-              name="newPassword"
-              placeholder="Enter New Password"
+              name="email"
+              placeholder="Email"
             />
           </div>
-          <div className="mb-4">
-            <label className="block mb-2">Re-Enter New Password:</label>
-            <input
-              type="password"
-              className="border border-[#dd3333] rounded-md shadow-md w-full p-2"
-              name="confirmPassword"
-              placeholder="Re-Enter New Password"
-            />
-          </div>
+
           <div className="flex justify-center">
           <button className="bg-[#dd3333] text-white font-semibold py-2 px-4 rounded-md hover:bg-[#ff4444]">
-            CONFIRM
+            Send Password Reset Link
           </button>
         </div>
         </form>
