@@ -8,11 +8,26 @@ import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import Loader from "../../components/loader/Loader";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import Layout from "../../components/layout/Layout";
+import GLogin from "../../components/google_registration/google_login";
+import { useEffect } from "react";
+import { gapi } from "gapi-script";
+
+const clientId =
+  "4957128503-g7h1fqfmcvjuvc98gnu6cji9k9o870an.apps.googleusercontent.com";
 
 const Login = () => {
   const context = useContext(myContext);
   const { loading, setLoading } = context;
 
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      });
+    }
+    gapi.load("client:auth2", start);
+  });
   // navigate
   const navigate = useNavigate();
 
@@ -51,7 +66,6 @@ const Login = () => {
           toast.success("Logged In Successfully");
           setLoading(false);
           navigate("/");
-          
         });
         return () => data;
       } catch (error) {
@@ -151,19 +165,7 @@ const Login = () => {
             <div className="border-t border-gray-400 flex-grow ml-2"></div>
           </div>
           {/* Google Login Button */}
-          <div className="mb-5 mt-4 w-96">
-            <button
-              type="button"
-              className="border border-gray-300 w-full py-2 rounded-md flex items-center justify-center gap-2 hover:bg-gray-100"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/128/281/281764.png"
-                alt="Google Icon"
-                className="w-5 h-5"
-              />
-              Continue with Google
-            </button>
-          </div>
+              <GLogin/>
 
           {/* Signup Link */}
           <div>
