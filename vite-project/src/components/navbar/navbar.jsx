@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const Navbar = () => {
 
@@ -47,26 +48,23 @@ const Navbar = () => {
     );
 
     const navListRight = (
-        <ul className="flex space-x-10 text-black font-medium text-md ">
+        <ul className="flex space-x-10 text-black font-medium text-md relative">
+            {user && (
+                <li className="relative">
+                    <i className="fas fa-user-circle text-2xl hover:text-[#dd3333]"
+                    onClick={toggleDropdown}></i>
+                    {showDropdown && (
+                        <div className="absolute right-0 mt-2 w-40 bg-green shadow-lg rounded-md text-sm">
+                            <Link to = {'/profile'} className="block px-4 py-2 hover:bg-gray-100 "> Profile </Link>
+                            <Link to = {'/settings'} className="block px-4 py-2 hover:bg-gray-100 "> Settings </Link>
+                            <button onClick={logout} className="block w-full text-left px-4 py-2 hover:bg-gray-100">Logout</button>
+                        </div>
+                    )}
+                </li>
+            )}
             {/* Profile */}
 
-             {/* logout */}
-             {user && <li className=" cursor-pointer" onClick={logout}>
-             <i className=" fas fa-sign-out-alt text-2xl hover:text-[#dd3333]"></i>
-            </li>}
-
-
-            {user?.role === "user" && <li>
-                <Link to={'/user-dashboard'} className="hover:text-[#dd3333]">
-                <i className="fas fa-user-circle text-2xl"></i>
-                </Link>
-            </li>}
-
-            {user?.role === "admin" && <li>
-                <Link to={'/admin-dashboard'} className="hover:text-[#dd3333]">
-                <i className="fas fa-user-circle text-2xl"></i>
-                </Link>
-            </li>} 
+            
 
             {/* Cart */}
             <li>
