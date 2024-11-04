@@ -42,6 +42,8 @@ const AddProductPage = () => {
     }),
   });
 
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
   // Handle file selection
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
@@ -69,6 +71,7 @@ const AddProductPage = () => {
     }
 
     setLoading(true);
+    setIsButtonDisabled(true); 
     try {
       // Upload the image to Firebase Storage
       const storage = getStorage();
@@ -96,6 +99,7 @@ const AddProductPage = () => {
     } catch (error) {
       console.error("Error adding product:", error);
       setLoading(false);
+      setIsButtonDisabled(false);
       toast.error("Failed to add product!");
     }
   };
@@ -254,6 +258,7 @@ const AddProductPage = () => {
                 onClick={addProductFunction}
                 type="button"
                 className="bg-[#dd3333] hover:bg-[#f44444] w-full shadow-md text-white text-center py-2 font-bold rounded-md "
+                disabled={isButtonDisabled}
               >
                 ADD PRODUCT
               </button>

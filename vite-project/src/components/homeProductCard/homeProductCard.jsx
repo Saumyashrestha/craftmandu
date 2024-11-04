@@ -26,6 +26,9 @@ const HomeProductCard = () => {
     toast.success("Deleted from Cart");
   };
 
+  const sortedProducts = getAllProduct.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const newestProducts = sortedProducts.slice(0, 8);
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -43,7 +46,9 @@ const HomeProductCard = () => {
         <div className="container px-5 py-5 mx-auto">
           <div className="flex justify-center">{loading && <Loader />}</div>
           <div className="flex flex-wrap -m-4">
-            {getAllProduct.slice(0, 8).map((item, index) => {
+
+            
+            {newestProducts.map((item, index) => {
               const { id, title, price, productImageUrl } = item;
               return (
                 <div key={index}

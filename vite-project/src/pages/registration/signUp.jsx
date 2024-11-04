@@ -77,6 +77,11 @@ const Signup = () => {
         }
 
     }
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          userSignupFunction(); 
+        }
+      };
     return (
         <Layout>
         <div className='playfair flex justify-center items-center h-screen'>
@@ -146,6 +151,7 @@ const Signup = () => {
                                 password: e.target.value
                             })
                         }}
+                        onKeyDown={handleKeyDown}
                         className=' shadow-md  border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
                     />
                 </div>
@@ -161,6 +167,7 @@ const Signup = () => {
                                 password: e.target.value
                             })
                         }}
+                        onKeyDown={handleKeyDown}
                         className=' shadow-md  border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
                     />
                 </div>

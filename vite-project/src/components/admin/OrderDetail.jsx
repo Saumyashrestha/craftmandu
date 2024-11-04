@@ -32,12 +32,14 @@ const OrderDetail = () => {
     }
   };
 
+  const sortedOrders = getAllOrder.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return (
     <div className="playfair">
       <div>
         <div className="py-5">
           {/* text  */}
-          <h1 className=" text-xl text-pink-300 font-bold">All Order</h1>
+          <h1 className=" text-xl text-pink-300 font-bold">All Orders</h1>
         </div>
 
         {/* table  */}
@@ -157,7 +159,7 @@ const OrderDetail = () => {
                   Action
                 </th>
               </tr>
-              {getAllOrder.map((order) => {
+              {sortedOrders.map((order) => {
                 console.log(order);
                 return (
                   <>

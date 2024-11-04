@@ -37,7 +37,7 @@ const SearchBar = () => {
                                     onClick={() => navigate(`/productinfo/${item.id}`)}>
                                         <div className="flex items-center gap-2">
                                             <img className="w-10" src={item.productImageUrl} alt="" />
-                                            {item.title}
+                                            {item.title} - {item.productCode}
                                         </div>
                                     </div>
                                 )
