@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import myContext from "../../context/myContext";
@@ -24,9 +23,7 @@ const Signup = () => {
     role: "user",
   });
 
-  /**========================================================================
-   *                          User Signup Function
-   *========================================================================**/
+
 
   const userSignupFunction = async () => {
     // validation
