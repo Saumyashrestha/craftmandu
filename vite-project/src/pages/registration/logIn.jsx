@@ -97,9 +97,7 @@ const Login = () => {
             backgroundImage: "url('./hero.png')",
           }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center">
-            <h1 className="text-white text-4xl font-bold">RS Craftmandu</h1>
-          </div>
+        
         </div>
 
         {/* Login Form Section */}
