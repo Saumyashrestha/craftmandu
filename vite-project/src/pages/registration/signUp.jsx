@@ -89,9 +89,7 @@ const Signup = () => {
 
             {/* Image Section */}
             <div className="hidden lg:flex w-2/3 h-full relative bg-cover bg-center" style={{ backgroundImage: "url('./hero.png')" }}>
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-center">
-                    <h1 className="text-white text-4xl font-bold">RS Craftmandu</h1>
-                </div>
+             
             </div>
 
             {/* Login Form  */}
@@ -171,6 +169,12 @@ const Signup = () => {
                         className=' shadow-md  border border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none placeholder-gray-400'
                     />
                 </div>
+
+                <div className="flex items-center justify-center my-3 w-96">
+            <div className="border-t border-gray-400 flex-grow mr-2"></div>
+            <div className="text-center text-sm text-gray-600">or</div>
+            <div className="border-t border-gray-400 flex-grow ml-2"></div>
+          </div>
 
                 {/* Signup Button  */}
                 <div className="mb-5 w-full flex justify-center mt-4">
