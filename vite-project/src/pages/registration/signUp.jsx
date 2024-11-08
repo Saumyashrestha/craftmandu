@@ -4,6 +4,7 @@ import myContext from "../../context/myContext";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
 import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import GLogin from "../../components/google_registration/google_login";
 import toast from "react-hot-toast";
 import Loader from "../../components/loader/Loader";
 import Layout from "../../components/layout/Layout";
@@ -185,6 +186,8 @@ const Signup = () => {
             <div className="text-center text-sm text-gray-600">or</div>
             <div className="border-t border-gray-400 flex-grow ml-2"></div>
           </div>
+
+          <GLogin/>
 
           <div>
             <h2 className=" text-black">

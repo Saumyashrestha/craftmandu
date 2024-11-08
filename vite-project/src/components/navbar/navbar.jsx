@@ -58,16 +58,7 @@ const Navbar = () => {
         </Link>
       </li>
 
-      {/* Signup */}
-      {!user ? (
-        <li>
-          <Link to={"/signup"} className=" hover:text-[#dd3333]">
-            Signup
-          </Link>
-        </li>
-      ) : (
-        ""
-      )}
+
 
       {/* Login */}
       {!user ? (
@@ -81,11 +72,12 @@ const Navbar = () => {
       )}
 
       {/* About */}
-      <li>
+    
+    {/* <li>
         <Link to={"/aboutus"} className=" hover:text-[#dd3333]">
           About
         </Link>
-      </li>
+      </li> */}
     </ul>
   );
 
@@ -265,7 +257,7 @@ const Navbar = () => {
                 Are you sure you want to delete your account? This action cannot
                 be undone.
               </p>
-              <div className="flex justify-around">
+              <div className="flex justify-center space-x-4">
                 {/* Delete Button */}
                 <button
                   onClick={handleDeleteAccount}
