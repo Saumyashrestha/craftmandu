@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
 
@@ -13,20 +13,40 @@ const Navbar = () => {
     localStorage.clear("users");
     navigate("/login");
   };
+
   const cartItems = useSelector((state) => state.cart);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [settingsDropdownOpen, setSettingsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-  const toggleSettingsDropdown = () => setSettingsDropdownOpen(!settingsDropdownOpen);
+  const toggleDropdown = () => {setDropdownOpen((prev)=> !prev);
+                                setSettingsDropdownOpen(false);};
+  const toggleSettingsDropdown = () => {setSettingsDropdownOpen((prev)=> !prev);}
+  const closeDropdowns = () => {
+    setDropdownOpen(false);
+    setSettingsDropdownOpen(false);
+  };
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const toggleDeleteModal = () => setIsDeleteModalOpen(!isDeleteModalOpen);
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeDropdowns();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleSaveChanges = () => {
     alert(`Saving changes for Name: ${newName}, Email: ${newEmail}`);
@@ -41,11 +61,6 @@ const Navbar = () => {
 
   const navListLeft = (
     <ul className="flex flex-col lg:flex-row lg:space-x-10 text-black font-medium text-md">
-      {!user ? (
-        <li>
-          <Link to={"/login"} className="hover:text-[#dd3333]">Login</Link>
-        </li>
-      ) : null}
     </ul>
   );
 
@@ -72,7 +87,7 @@ const Navbar = () => {
                   Settings
                 </span>
                 {settingsDropdownOpen && (
-                  <ul className="absolute top-0 left-full ml-2 bg-white shadow-lg rounded-md w-32">
+                  <ul className="absolute top-2 right-full mr-2 bg-white shadow-lg rounded-md w-32">
                     <li>
                       <span
                         onClick={toggleModal}
@@ -92,11 +107,19 @@ const Navbar = () => {
                   </ul>
                 )}
               </li>
+              <hr></hr>
               <li onClick={logout} className="cursor-pointer">
                 <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</span>
               </li>
             </ul>
           )}
+        </li>
+      )}
+       {!user && (
+        <li>
+          <Link to={"/login"} className="hover:text-[#dd3333]">
+          <i className="fas fa-sign-in-alt text-2xl"></i> 
+          </Link>
         </li>
       )}
       <li>
