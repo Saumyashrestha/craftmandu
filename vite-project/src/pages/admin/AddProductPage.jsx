@@ -116,7 +116,7 @@ const AddProductPage = () => {
           }}
         >
           {/* Overlay for low opacity effect */}
-          <div className="absolute inset-0 bg-black opacity-60"></div>
+          <div className="absolute inset-0 bg-[#f9f9f9]"></div>
 
           {loading && <Loader />}
 
@@ -217,23 +217,22 @@ const AddProductPage = () => {
               />
             </div>
 
-            {/* Input for Quantity */}
-            <div className="mb-3">
-              <input
-                type="number"
-                name="quantity"
-                value={product.quantity}
-                onChange={(e) => {
-                  setProduct({
-                    ...product,
-                    quantity: e.target.value,
-                  });
-                }}
-                placeholder="Product Quantity"
-                className=" border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md outline-none shadow-md placeholder-gray-600"
-              />
-            </div>
-
+            {/* Size */}
+<div className="mb-3">
+  <input
+    type="text"
+    name="size"
+    value={product.size}
+    onChange={(e) => {
+      setProduct({
+        ...product,
+        size: e.target.value,
+      });
+    }}
+    placeholder="Dimensions (height x breadth x width (in mm))"
+    className="border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md shadow-md outline-none placeholder-gray-600"
+  />
+</div>
 
             {/* Product Description */}
             <div className="mb-3">
