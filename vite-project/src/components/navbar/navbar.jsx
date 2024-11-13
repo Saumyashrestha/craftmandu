@@ -111,7 +111,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white sticky top-0 shadow-md z-50">
-      <div className="flex justify-between items-center py-3 px-5 lg:px-10">
+      <div className="playfair flex justify-between items-center py-3 px-5 lg:px-10">
         <Link to={"/"}>
           <img src="/public/rslogo.png" alt="Logo" className="h-12" />
         </Link>
