@@ -41,9 +41,6 @@ const Navbar = () => {
 
   const navListLeft = (
     <ul className="flex flex-col lg:flex-row lg:space-x-10 text-black font-medium text-md">
-      <li>
-        <Link to={"/"} className="hover:text-[#dd3333]">Home</Link>
-      </li>
       {!user ? (
         <li>
           <Link to={"/login"} className="hover:text-[#dd3333]">Login</Link>
