@@ -145,13 +145,7 @@ const Navbar = () => {
         </li>
       )}
 
-      {user?.role === "admin" && (
-        <li>
-          <Link to={"/admin-dashboard"} className="hover:text-[#dd3333]">
-            <i className="fas fa-user-circle text-2xl"></i>
-          </Link>
-        </li>
-      )}
+      
 
       {/* Cart */}
       <li>
