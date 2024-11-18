@@ -6,9 +6,9 @@ import toast from "react-hot-toast";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, fireDB } from "../../firebase/FirebaseConfig";
 import Loader from "../../components/loader/Loader";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
+import { collection, onSnapshot, query, where, getDocs  } from "firebase/firestore";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Layout from "../../components/layout/Layout";
-import GLogin from "../../components/google_registration/google_login";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
 
@@ -18,6 +18,7 @@ const clientId =
 const Login = () => {
   const context = useContext(myContext);
   const { loading, setLoading } = context;
+  const googleProvider = new GoogleAuthProvider();
 
   useEffect(() => {
     function start() {
@@ -82,6 +83,47 @@ const Login = () => {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       userLoginFunction(); 
+    }
+  };
+
+  const signupWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+  
+      // Fetch user data from Firestore
+      const q = query(collection(fireDB, "user"), where("uid", "==", user.uid));
+      const querySnapshot = await getDocs(q);
+  
+      if (!querySnapshot.empty) {
+        // User exists, fetch data
+        const userData = querySnapshot.docs[0].data();
+        localStorage.setItem("users", JSON.stringify(userData));
+        toast.success("Logged In Successfully");
+        navigate("/");
+      } else {
+        // If user does not exist, create a new entry
+        const newUser = {
+          name: user.displayName,
+          email: user.email,
+          uid: user.uid,
+          role: "user",
+          time: Timestamp.now(),
+          date: new Date().toLocaleString("en-US", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          }),
+        };
+  
+        await addDoc(collection(fireDB, "user"), newUser);
+        localStorage.setItem("users", JSON.stringify(newUser));
+        toast.success("Signed Up Successfully");
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Google Sign-In Error: ", error);
+      toast.error("Login with Google Failed");
     }
   };
 
@@ -170,8 +212,20 @@ const Login = () => {
             <div className="text-center text-sm text-gray-600">or</div>
             <div className="border-t border-gray-400 flex-grow ml-2"></div>
           </div>
-          {/* Google Login Button */}
-              <GLogin/>
+          <div className="mb-5 mt-4 w-96">
+            <button
+              type="button"
+              onClick={signupWithGoogle}
+              className="border border-gray-300 w-full py-2 rounded-md flex items-center justify-center gap-2 hover:bg-gray-100"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/281/281764.png"
+                alt="Google Icon"
+                className="w-5 h-5"
+              />
+              Continue with Google
+            </button>
+          </div>
 
           {/* Signup Link */}
           <div>
