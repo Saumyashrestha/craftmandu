@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect, useRef } from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { fireDB } from "../../firebase/FirebaseConfig";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("users"));
@@ -24,9 +25,13 @@ const Navbar = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const toggleDropdown = () => {setDropdownOpen((prev)=> !prev);
-                                setSettingsDropdownOpen(false);};
-  const toggleSettingsDropdown = () => {setSettingsDropdownOpen((prev)=> !prev);};
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev);
+    setSettingsDropdownOpen(false);
+  };
+  const toggleSettingsDropdown = () => {
+    setSettingsDropdownOpen((prev) => !prev);
+  };
   const closeDropdowns = () => {
     setDropdownOpen(false);
     setSettingsDropdownOpen(false);
@@ -37,7 +42,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target) ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         closeDropdowns();
       }
     };
@@ -53,27 +58,42 @@ const Navbar = () => {
     toggleModal();
   };
 
-  const handleDeleteAccount = () => {
-    localStorage.removeItem("users");
-    setIsDeleteModalOpen(false);
-    navigate("/signup");
-  };
+  const handleDeleteAccount = async () => {
+    try {
+      const userDocRef = doc(fireDB, "user", user.uid);
+      await deleteDoc(userDocRef);
 
+      localStorage.removeItem("users");
+      toast.success("Account deleted successfully");
+      navigate("/signup");
+    } catch (error) {
+      console.error("Error deleting account: ", error);
+      alert("An error occurred while deleting your account. Please try again.");
+    } finally {
+      setIsDeleteModalOpen(false);
+    }
+  };
   const navListLeft = (
-    <ul className="flex flex-col lg:flex-row lg:space-x-10 text-black font-medium text-md">
-    </ul>
-  );
+    <ul className="flex flex-col lg:flex-row lg:space-x-10 text-black font-medium text-md"></ul>
+  );  
 
   const navListRight = (
-    <ul className="flex flex-col lg:flex-row lg:space-x-10 text-black font-medium text-md">
+    <ul className="flex flex-row ml-5 lg:flex-row lg:space-x-10 text-black font-medium text-md">
       {user && (
-        <li className="relative cursor-pointer">
-          <i className="fas fa-user-circle text-2xl hover:text-[#dd3333]" onClick={toggleDropdown}></i>
+        <li className="relative  cursor-pointer ">
+          <i
+            className="fas fa-user-circle text-2xl hover:text-[#dd3333]"
+            onClick={toggleDropdown}
+          ></i>
           {dropdownOpen && (
             <ul className="absolute top-12 left-0 transform -translate-x-1/2 bg-white shadow-lg rounded-md w-32 text-md">
               <li>
                 <Link
-                  to={user.role === "admin" ? "/admin-dashboard" : "/user-dashboard"}
+                  to={
+                    user.role === "admin"
+                      ? "/admin-dashboard"
+                      : "/user-dashboard"
+                  }
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >
                   Profile
@@ -110,20 +130,22 @@ const Navbar = () => {
               </li>
               <hr></hr>
               <li onClick={logout} className="cursor-pointer">
-                <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</span>
+                <span className="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+                  Logout
+                </span>
               </li>
             </ul>
           )}
         </li>
       )}
-       {!user && (
+      {!user && (
         <li>
           <Link to={"/login"} className="hover:text-[#dd3333]">
-          <i className="fas fa-sign-in-alt text-2xl"></i> 
+            <i className="fas fa-sign-in-alt text-2xl"></i>
           </Link>
         </li>
       )}
-      <li>
+      <li className="ml-4">
         <Link to={"/cart"} className="hover:text-[#dd3333]">
           <i className="fas fa-shopping-cart text-2xl">
             <span className="text-xs">({cartItems.length})</span>
@@ -149,21 +171,30 @@ const Navbar = () => {
         </div>
       </div>
       {mobileMenuOpen && (
-        <div className="lg:hidden px-5 py-3 space-y-2 bg-white">
-          {navListLeft}
-          <SearchBar />
-          {navListRight}
-        </div>
+        <div className="lg:hidden px-5 py-3 space-y-2 bg-white flex flex-col items-center">
+  <div className="flex items-center">
+    {navListLeft}
+    <SearchBar />
+    {navListRight}
+  </div>
+</div>
       )}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="relative bg-[#f9f9f9] border-2 border-[#dd3333] shadow-md rounded-lg w-1/3 p-6">
-            <button onClick={toggleModal} className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <button
+              onClick={toggleModal}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
               <i className="fas fa-times"></i>
             </button>
-            <h2 className="text-2xl font-semibold text-center text-[#dd3333] mb-6">Edit Your Profile</h2>
+            <h2 className="text-2xl font-semibold text-center text-[#dd3333] mb-6">
+              Edit Your Profile
+            </h2>
             <div className="mb-4">
-              <label className="block mb-1 text-sm text-[#dd3333] font-semibold">Name</label>
+              <label className="block mb-1 text-sm text-[#dd3333] font-semibold">
+                Name
+              </label>
               <input
                 type="text"
                 placeholder="Enter Your New Name"
@@ -173,7 +204,9 @@ const Navbar = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="block mb-1 text-sm text-[#dd3333] font-semibold">Email</label>
+              <label className="block mb-1 text-sm text-[#dd3333] font-semibold">
+                Email
+              </label>
               <input
                 type="email"
                 placeholder="Enter Your New E-mail"
@@ -194,16 +227,22 @@ const Navbar = () => {
       {isDeleteModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           <div className="relative bg-[#f9f9f9] border-2 border-[#dd3333] shadow-md rounded-lg w-1/3 p-6">
-            <button onClick={toggleDeleteModal} className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <button
+              onClick={toggleDeleteModal}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
               <i className="fas fa-times"></i>
             </button>
-            <h2 className="text-2xl font-semibold text-center text-[#dd3333] mb-6">Delete Your Account?</h2>
+            <h2 className="text-2xl font-semibold text-center text-[#dd3333] mb-6">
+              Delete Your Account?
+            </h2>
             <p className="text-center text-gray-600 mb-6">
-              Are you sure you want to delete your account? This action cannot be undone.
+              Are you sure you want to delete your account? This action cannot
+              be undone.
             </p>
             <div className="flex justify-center space-x-4">
               <button
-                onClick={handleDeleteAccount}
+                onClick={handleDeleteAccount} // Call delete function
                 className="px-4 py-2 bg-[#dd3333] text-white rounded-md font-semibold hover:bg-[#ff4444]"
               >
                 Delete

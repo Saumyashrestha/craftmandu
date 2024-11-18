@@ -114,7 +114,7 @@ const UserDashboard = () => {
 
                                                             <div className="mb-4">
                                                                 <div className="text-sm font-semibold text-[#dd3333]">Delivery Date</div>
-                                                                <div className="text-sm font-medium text-gray-900">{date}</div>
+                                                                <div className="text-sm font-medium text-gray-900">Please check your email!😄</div>
                                                             </div>
 
                                                             <div className="mb-4">
