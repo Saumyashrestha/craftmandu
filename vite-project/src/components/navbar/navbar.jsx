@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const toggleDropdown = () => {setDropdownOpen((prev)=> !prev);
                                 setSettingsDropdownOpen(false);};
-  const toggleSettingsDropdown = () => {setSettingsDropdownOpen((prev)=> !prev);}
+  const toggleSettingsDropdown = () => {setSettingsDropdownOpen((prev)=> !prev);};
   const closeDropdowns = () => {
     setDropdownOpen(false);
     setSettingsDropdownOpen(false);
@@ -37,7 +37,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) ) {
         closeDropdowns();
       }
     };
@@ -96,6 +96,7 @@ const Navbar = () => {
                         Edit Profile
                       </span>
                     </li>
+                    <hr></hr>
                     <li>
                       <span
                         onClick={toggleDeleteModal}

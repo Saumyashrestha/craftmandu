@@ -32,6 +32,7 @@ const AddProductPage = () => {
     productImageFile: null, // Image file will be stored here
     category: "",
     productCode: "",
+    size: "",
     description: "",
     quantity: 1,
     time: Timestamp.now(),
@@ -65,7 +66,8 @@ const AddProductPage = () => {
       product.productImageFile == null ||
       product.category === "" ||
       product.description === "" ||
-      product.productCode === ""
+      product.productCode === "" ||
+      product.size === ""
     ) {
       return toast.error("All fields are required");
     }
@@ -229,7 +231,7 @@ const AddProductPage = () => {
         size: e.target.value,
       });
     }}
-    placeholder="Dimensions (height x breadth x width (in mm))"
+    placeholder="Product Size"
     className="border text-gray-800 border-[#dd3333] px-2 py-2 w-96 rounded-md shadow-md outline-none placeholder-gray-600"
   />
 </div>
