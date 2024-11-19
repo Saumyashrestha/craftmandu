@@ -159,7 +159,7 @@ const Navbar = () => {
     <nav className="bg-white sticky top-0 shadow-md z-50">
       <div className="playfair flex justify-between items-center py-3 px-5 lg:px-10">
         <Link to={"/"}>
-          <img src="/public/rslogo.png" alt="Logo" className="h-12" />
+          <img src="/rslogo.png" alt="Logo" className="h-12" />
         </Link>
         <button className="lg:hidden text-2xl" onClick={toggleMobileMenu}>
           <i className="fas fa-bars"></i>

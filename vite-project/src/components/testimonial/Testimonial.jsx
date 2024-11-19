@@ -59,7 +59,7 @@ const Testimonial = () => {
                         {/* Testimonial 2 */}
                         <motion.div className="lg:w-1/3 lg:mb-0 mb-6 p-4" variants={containerVariants}>
                             <div className="h-full text-center">
-                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="/public/femaleicon.png" />
+                                <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="/femaleicon.png" />
                                 <p className="leading-relaxed">The felt coasters and placemats I purchased are both stylish and practical. They add a unique touch to my dining table, and the quality is outstanding. I love how eco-friendly and beautifully crafted they are! I've already received multiple compliments and will definitely returning for more unique items.</p>
                                 <span className="inline-block h-1 w-10 rounded bg-[#dd3333] mt-6 mb-4" />
                                 <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm uppercase">Roshna Shrestha</h2>
